@@ -28,14 +28,14 @@
           <ul class="nav navbar-nav navbar-right">
             <li class="active"><a href="#">Home</a></li>
             <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown"> Drinks <b class="caret"></b></a>
+              <a href="#drinks" data-toggle="modal"> Drinks</a>
               <ul class="dropdown-menu">
                 <li><a href="#refill" data-toggle="modal">Refill</a></li>
                 <li><a href="#drinks" data-toggle="modal">Order</a></li>
               </ul>
             </li>
             <li><a href="#food">Food</a></li>
-            <li><a href="#contact" data-toggle="modal">Login/Register</a></li>
+            <li><a href="#login" data-toggle="modal">Login/Register</a></li>
             <li><a href="#help"><i class="fa fa-question-circle fa-3" style="font-size: large"></i></a></li>
           </ul>
         </div><!--/.nav-collapse -->
@@ -130,36 +130,34 @@
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <div class="modal fade" id="drinks" role="dialog">
-    	<div class="modal-dialog">
-    		<div class="modal-content">
-    			<form class="form-horizontal" role="form">
-    				<div class="modal-header">
-    					<h4>Drinks<h4>
-	    			</div>
+    <div class="modal fade" id="drink-chooser" role="dialog">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <form class="form-horizontal" role="form">
+            <div class="modal-header">
+              <div class="navbar navbar-default navbar-fixed-top">
+                <a class="navbar-brand" href="#">Drink Chooser</a>
+              </div>
+            </div>
 	    			<div class="modal-body">
     					<ul class="row list-unstyled">
-							<li class="col-lg-2 col-md-2 col-sm-3 col-xs-4"><img class="img-responsive" src="http://i.ebayimg.com/00/s/NTAwWDUwMA==/z/gqAAAOxykUZTe6wN/$_14.JPG"></li>
-							<li class="col-lg-2 col-md-2 col-sm-3 col-xs-4"><img class="img-responsive" src="http://i.ebayimg.com/00/s/NTAwWDUwMA==/z/gqAAAOxykUZTe6wN/$_14.JPG"></li>
-							<li class="col-lg-2 col-md-2 col-sm-3 col-xs-4"><img class="img-responsive" src="http://i.ebayimg.com/00/s/NTAwWDUwMA==/z/gqAAAOxykUZTe6wN/$_14.JPG"></li>
-							<li class="col-lg-2 col-md-2 col-sm-3 col-xs-4"><img class="img-responsive" src="http://i.ebayimg.com/00/s/NTAwWDUwMA==/z/gqAAAOxykUZTe6wN/$_14.JPG"></li>
-							<li class="col-lg-2 col-md-2 col-sm-3 col-xs-4"><img class="img-responsive" src="http://i.ebayimg.com/00/s/NTAwWDUwMA==/z/gqAAAOxykUZTe6wN/$_14.JPG"></li>
-							<li class="col-lg-2 col-md-2 col-sm-3 col-xs-4"><img class="img-responsive" src="http://i.ebayimg.com/00/s/NTAwWDUwMA==/z/gqAAAOxykUZTe6wN/$_14.JPG"></li>
-							<li class="col-lg-2 col-md-2 col-sm-3 col-xs-4"><img class="img-responsive" src="http://i.ebayimg.com/00/s/NTAwWDUwMA==/z/gqAAAOxykUZTe6wN/$_14.JPG"></li>
-							<li class="col-lg-2 col-md-2 col-sm-3 col-xs-4"><img class="img-responsive" src="http://i.ebayimg.com/00/s/NTAwWDUwMA==/z/gqAAAOxykUZTe6wN/$_14.JPG"></li>
-							<li class="col-lg-2 col-md-2 col-sm-3 col-xs-4"><img class="img-responsive" src="http://i.ebayimg.com/00/s/NTAwWDUwMA==/z/gqAAAOxykUZTe6wN/$_14.JPG"></li>
-							<li class="col-lg-2 col-md-2 col-sm-3 col-xs-4"><img class="img-responsive" src="http://i.ebayimg.com/00/s/NTAwWDUwMA==/z/gqAAAOxykUZTe6wN/$_14.JPG"></li>
+							<li class="col-lg-2 col-md-2 col-sm-3 col-xs-4"><img class="img-responsive" src="img/soda-thumbnails/coke.jpg"></li>
+							<li class="col-lg-2 col-md-2 col-sm-3 col-xs-4"><img class="img-responsive" src="img/soda-thumbnails/sprite.jpg"></li>
+							<li class="col-lg-2 col-md-2 col-sm-3 col-xs-4"><img class="img-responsive" src="img/soda-thumbnails/dr-pepper.jpg"></li>
+							<li class="col-lg-2 col-md-2 col-sm-3 col-xs-4"><img class="img-responsive" src="img/soda-thumbnails/diet-coke.jpg"></li>
+							<li class="col-lg-2 col-md-2 col-sm-3 col-xs-4"><img class="img-responsive" src="img/soda-thumbnails/fanta.jpg"></li>
+							<li class="col-lg-2 col-md-2 col-sm-3 col-xs-4"><img class="img-responsive" src="img/soda-thumbnails/coke-zero.jpg"></li>
     					</ul>
 	    			</div>
 	    			<div class="modal-footer">
     					<a class="btn btn-default" data-dismiss="modal">Close</a>
-    					<button type="submit" class="btn btn-primary">Order</button>
+    					<a class="btn btn-primary" data-dismiss="modal" data-toggle="modal" href="#drinks">Choose</a>
     				</div>
     			</form>
     		</div>
     	</div>
     </div>
-    <div class="modal fade" id="contact" role="dialog">
+    <div class="modal fade" id="login" role="dialog">
     	<div class="modal-dialog">
     		<div class="modal-content">
     			<form class="form-horizontal" role="form">
@@ -227,13 +225,13 @@
     		</div>
     	</div>
     </div>
-    <div class="modal fade" id="refill" role="dialog">
+    <div class="modal fade" id="drinks" role="dialog">
       <div class="modal-dialog">
         <div class="modal-content">
           <form class="form-horizontal" role="form">
             <div class="modal-header">
               <div class="navbar navbar-default navbar-fixed-top">
-                <a class="navbar-brand" href="#">Refill</a>
+                <a class="navbar-brand" href="#">Drinks</a>
               </div>
             </div>
             <div class="modal-body">
@@ -241,14 +239,20 @@
                 <thead>
                   <tr>
                     <th>Guest</th>
-                    <th>Refill</th>
+                    <th>Refill?</th>
+                    <th>Drink</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr>
                     <th>Andrew</th>
                     <th>
-                      <input type="checkbox">
+						<input type="checkbox">
+                    </th>
+                    <th>
+						<a href="#drink-chooser" class="btn btn-default" data-toggle="modal" data-dismiss="modal">
+							Choose
+						</a>
                     </th>
                   </tr>
                    <tr>
@@ -256,11 +260,21 @@
                     <th>
                       <input type="checkbox">
                     </th>
+                    <th>
+                      <a href="#drink-chooser" class="btn btn-default" data-toggle="modal" data-dismiss="modal">
+							Choose
+					  </a>
+                    </th>
                   </tr>
                    <tr>
                     <th>Carrie</th>
                     <th>
                       <input type="checkbox">
+                    </th>
+                    <th>
+                      <a href="#drink-chooser" class="btn btn-default" data-toggle="modal" data-dismiss="modal">
+							Choose
+					  </a>
                     </th>
                   </tr>
                    <tr>
@@ -268,18 +282,28 @@
                     <th>
                         <input type="checkbox">
                     </th>
+                    <th>
+                      <a href="#drink-chooser" class="btn btn-default" data-toggle="modal" data-dismiss="modal">
+							Choose
+					  </a>
+                    </th>
                   </tr>
                    <tr>
                     <th>Tyler</th>
                     <th>
                       <input type="checkbox">
                     </th>
+                    <th>
+                      <a href="#drink-chooser" class="btn btn-default" data-toggle="modal" data-dismiss="modal">
+							Choose
+					  </a>
+                    </th>
                   </tr>
                 </tbody>
               </table>
             <div class="modal-footer">
               <a class="btn btn-default" data-dismiss="modal">Close</a>
-              <button type="submit" class="btn btn-primary">Refill</button>
+              <button type="submit" class="btn btn-primary">Order</button>
             </div>
           </form>
         </div>
