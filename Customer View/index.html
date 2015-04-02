@@ -27,16 +27,10 @@
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
             <li class="active"><a href="#">Home</a></li>
-            <li class="dropdown">
-              <a href="#drinks" data-toggle="modal"> Drinks</a>
-              <ul class="dropdown-menu">
-                <li><a href="#refill" data-toggle="modal">Refill</a></li>
-                <li><a href="#drinks" data-toggle="modal">Order</a></li>
-              </ul>
-            </li>
+            <li><a href="#drinks" data-toggle="modal"> Drinks</a></li>
             <li><a href="#food">Food</a></li>
             <li><a href="#login" data-toggle="modal">Login/Register</a></li>
-            <li><a href="#help"><i class="fa fa-question-circle fa-3" style="font-size: large"></i></a></li>
+            <li><a href="#help" data-toggle="modal"><i class="fa fa-question-circle fa-3" style="font-size: large"></i></a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
@@ -139,7 +133,7 @@
                 <a class="navbar-brand" href="#">Drink Chooser</a>
               </div>
             </div>
-	    			<div class="modal-body">
+	    	<div class="modal-body">
     					<ul class="row list-unstyled">
 							<li class="col-lg-2 col-md-2 col-sm-3 col-xs-4">
 								<a class="btn btn-default" data-dismiss="modal" data-toggle="modal" href="#drinks">
@@ -172,18 +166,18 @@
 								</a>
 							</li>
     					</ul>
-	    			</div>
-    			</form>
-    		</div>
+	    	  </div>
+    	  </form>
     	</div>
+	  </div>
     </div>
     <div class="modal fade" id="login" role="dialog">
     	<div class="modal-dialog">
     		<div class="modal-content">
     			<form class="form-horizontal" role="form">
     				<div class="modal-header">
-    					<h4>Login<h4>
-	    			</div>
+    					<h4>Login</h4>
+					</div>
 	    			<div class="modal-body">
     					<div class="form-group">
     						<label for="email-address" class="col-sm-2 control-label">Email</label>
@@ -206,8 +200,8 @@
     					<a class="btn btn-default" data-dismiss="modal">Close</a>
     					<button type="submit" class="btn btn-primary">Login</button>
     				</div>
-    			</form>
-    		</div>
+				</form>
+			</div>
     	</div>
     </div>
 	<div class="modal fade" id="register" role="dialog">
@@ -244,6 +238,8 @@
     			</form>
     		</div>
     	</div>
+			</div>
+		</div>
     </div>
     <div class="modal fade" id="drinks" role="dialog">
       <div class="modal-dialog">
@@ -329,7 +325,26 @@
         </div>
       </div>
     </div>
-
+	</div>
+    <div class="modal fade" id="help" role="dialog">
+    	<div class="modal-dialog">
+    		<div class="modal-content">
+    			<form class="form-horizontal" role="form">
+					<div class="modal-header">
+						<div class="navbar navbar-default navbar-fixed-top">
+							<a class="navbar-brand" href="#">Need Help?</a>
+						</div>
+					</div>
+	    			<div class="modal-body">
+						<p>Wait-staff are on the way!</p>
+	    			</div>
+	    			<div class="modal-footer">
+    					<a class="btn btn-default" data-dismiss="modal">Close</a>
+    				</div>
+    			</form>
+    		</div>
+    	</div>
+	</div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
   </body>
