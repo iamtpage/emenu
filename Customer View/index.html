@@ -83,14 +83,14 @@
 
 		<div class="row" id="under-specials">
 			<div class="col-sm-4">
-				<a href="#drinks" class="thumbnail">
+				<a href="#drinks" data-toggle="modal" class="thumbnail">
 					<img src="img/soda.jpg" alt="">
 				</a>
 				<h3 class="text-center">Drinks</h3>
 				<p>We offer Coke products as well as ice water, click the picture above to choose from our selection</p>
 			</div>
 			<div class="col-sm-4">
-				<a href="#food" class="thumbnail">
+				<a href="#food" data-toggle="modal" class="thumbnail">
 					<img src="img/pizza.jpg" alt="">
 				</a>
 				<h3 class="text-center">Food</h3>
@@ -345,6 +345,50 @@
     		</div>
     	</div>
 	</div>
+    <div class="modal fade" id="food" role="dialog">
+    	<div class="modal-dialog">
+    		<div class="modal-content">
+    			<form class="form-horizontal" role="form">
+					<div class="modal-header">
+						<div class="navbar navbar-default navbar-fixed-top">
+							<a class="navbar-brand" href="#">What do you want to look at?</a>
+						</div>
+					</div>
+	    			<div class="modal-body">
+						<div class="row">
+							<div class="col-sm-4">
+								<a href="#" class="thumbnail">
+									<img src="img/breadsticks.jpg" alt="breadsticks">
+								</a>
+								<p class="text-center">
+									Appetizers
+								</p>
+							</div>
+							<div class="col-sm-4">
+								<a href="#" class="thumbnail">
+									<img src="img/pizza.jpg" alt="pizza">
+								</a>
+								<p class="text-center">
+									Pizza
+								</p>
+							</div>
+							<div class="col-sm-4">
+								<a href="#" class="thumbnail">
+									<img src="img/molten-cake.jpg" alt="molten cake">
+								</a>
+								<p class="text-center">
+									Desserts
+								</p>
+							</div>
+						</div>
+	    			</div>
+	    			<div class="modal-footer">
+    					<a class="btn btn-default" data-dismiss="modal">Close</a>
+    				</div>
+    			</form>
+    		</div>
+    	</div>
+    </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
   </body>
