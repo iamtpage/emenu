@@ -50,12 +50,15 @@
 		  <div class="carousel-inner">
 		    <div class="item active">
 		      <img src="http://placehold.it/1200x315" alt="...">
-		      <div class="text-left" id="below-caption">
+		      <div class="carousel-caption" id="below-caption">
 		          <h3>Welcome to Fat Cat Pizza!</h3>
                   <p>Try our new appetizers!</p>
+                  <a class="btn btn-default" href="#appetizers" data-toggle="modal">
+					  View our Appetizers
+				  </a>
 		      </div>
-              <div class="text-right" id="below-caption">
-                  <a class="btn btn-default" href="#appetizers" data-toggle="modal">View our Appetizers</a>
+              <div id="below-caption">
+
               </div>
 		    </div>
            <div class="item">
@@ -357,7 +360,7 @@
 	    			<div class="modal-body">
 						<div class="row">
 							<div class="col-sm-4">
-								<a href="#" class="thumbnail">
+								<a href="#appetizers" class="thumbnail" data-toggle="modal" data-dismiss="modal">
 									<img src="img/breadsticks.jpg" alt="breadsticks">
 								</a>
 								<p class="text-center">
@@ -365,7 +368,7 @@
 								</p>
 							</div>
 							<div class="col-sm-4">
-								<a href="#" class="thumbnail">
+								<a href="#" class="thumbnail" data-toggle="modal" data-dismiss="modal">
 									<img src="img/pizza.jpg" alt="pizza">
 								</a>
 								<p class="text-center">
@@ -373,7 +376,7 @@
 								</p>
 							</div>
 							<div class="col-sm-4">
-								<a href="#" class="thumbnail">
+								<a href="#desserts" class="thumbnail" data-toggle="modal" data-dismiss="modal">
 									<img src="img/molten-cake.jpg" alt="molten cake">
 								</a>
 								<p class="text-center">
@@ -389,6 +392,44 @@
     		</div>
     	</div>
     </div>
+    <div class="modal fade" id="appetizers" role="dialog">
+    	<div class="modal-dialog">
+    		<div class="modal-content">
+    			<form class="form-horizontal" role="form">
+					<div class="modal-header">
+						<div class="navbar navbar-default navbar-fixed-top">
+							<a class="navbar-brand" href="#">Appetizers</a>
+						</div>
+					</div>
+	    			<div class="modal-body">
+						<p>Lorem Ipsum blah blah blah</p>
+	    			</div>
+	    			<div class="modal-footer">
+    					<a class="btn btn-default" data-dismiss="modal">Close</a>
+    				</div>
+    			</form>
+    		</div>
+    	</div>
+	</div>
+    <div class="modal fade" id="desserts" role="dialog">
+    	<div class="modal-dialog">
+    		<div class="modal-content">
+    			<form class="form-horizontal" role="form">
+					<div class="modal-header">
+						<div class="navbar navbar-default navbar-fixed-top">
+							<a class="navbar-brand" href="#">Desserts</a>
+						</div>
+					</div>
+	    			<div class="modal-body">
+						<p>Lorem Ipsum blah blah blah blah</p>
+	    			</div>
+	    			<div class="modal-footer">
+    					<a class="btn btn-default" data-dismiss="modal">Close</a>
+    				</div>
+    			</form>
+    		</div>
+    	</div>
+	</div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
   </body>
