@@ -4,8 +4,6 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Bootstrap 3 Tutorial from BootstrapBay.com">
-    <meta name="author" content="BootstrapBay.com">
     <title>Fat Cat Pizza</title>
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/custom.css" rel="stylesheet">
@@ -29,16 +27,11 @@
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
             <li class="active"><a href="#">Home</a></li>
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown"> Drinks <b class="caret"></b></a>
-              <ul class="dropdown-menu">
-                <li><a href="#refill" data-toggle="modal">Refill</a></li>
-                <li><a href="#order">Order</a></li>
-              </ul>
-            </li>
-            <li><a href="#food">Food</a></li>
-            <li><a href="#contact" data-toggle="modal">Login/Register</a></li>
-            <li><a href="#help"><i class="fa fa-question-circle fa-3" style="font-size: large"></i></a></li>
+            <li><a href="#drinks" data-toggle="modal"> Drinks</a></li>
+            <li><a href="#food" data-toggle="modal">Food</a></li>
+            <li><a href="#login" data-toggle="modal">Login/Register</a></li>
+            <li><a href="#pay" data-toggle="modal">Pay Bill</a></li>
+            <li><a href="#help" data-toggle="modal"><i class="fa fa-question-circle fa-3" style="font-size: large"></i></a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
@@ -58,22 +51,25 @@
 		  <div class="carousel-inner">
 		    <div class="item active">
 		      <img src="http://placehold.it/1200x315" alt="...">
-		      <div class="text-left" id="below-caption">
-		          <h3>Drink Specials</h3>
-                  <p>Try our new pizza patron shot!</p>
+		      <div class="carousel-caption" id="below-caption">
+		          <h3>Welcome to Fat Cat Pizza!</h3>
+                  <p>Try our new appetizers!</p>
+                  <a class="btn btn-default" href="#appetizers" data-toggle="modal">
+					  View our Appetizers
+				  </a>
 		      </div>
-              <div class="text-right" id="above-caption">
-                  <button>Add to Cart</button>
+              <div id="below-caption">
+
               </div>
 		    </div>
            <div class="item">
               <img src="http://placehold.it/1200x315" alt="...">
-              <div class="text-left" id="above-caption">
+              <div class="text-left" id="below-caption">
                   <h3>Food Specials</h3>
                   <p>Our new Spicy Pepperoni will knock your socks off!</p>
               </div>
-              <div class="text-right" id="above-caption">
-                  <button>Add to Cart</button>
+              <div class="text-right" id="below-caption">
+                  <a class="btn btn-default" href="#food" data-toggle="modal">View Our Menu</a>
               </div>
             </div>
             <div class="item">
@@ -83,46 +79,33 @@
                   <p>Our new lava cake will melt your heart!</p>
               </div>
               <div class="text-right" id="below-caption">
-                  <button>Add to Cart</button>
+                  <a class="btn btn-default" href="#desserts" data-toggle="modal">View Desserts</a>
               </div>
             </div>
 		  </div>
-
-		  <!-- Controls -->
-<!--
-		  <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
-		    <span class="glyphicon glyphicon-chevron-left"></span>
-		  </a>
-		  <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
-		    <span class="glyphicon glyphicon-chevron-right"></span>
-		  </a>
--->
 		</div> <!-- Carousel -->
 
 		<div class="row" id="under-specials">
 			<div class="col-sm-4">
-				<a href="#" class="thumbnail">
+				<a href="#drinks" data-toggle="modal" class="thumbnail">
 					<img src="img/soda.jpg" alt="">
 				</a>
 				<h3 class="text-center">Drinks</h3>
-				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc suscipit convallis nisl, eget rutrum lectus commodo at. Pellentesque mattis justo vel augue pretium euismod. Interdum et malesuada fames ac ante ipsum primis in faucibus. Fusce eu turpis eros.</p>
-				<a href="#drinks" class="btn btn-danger" data-toggle="modal">View</a>
+				<p>We offer Coke products as well as ice water, click the picture above to choose from our selection</p>
 			</div>
 			<div class="col-sm-4">
-				<a href="#" class="thumbnail">
+				<a href="#food" data-toggle="modal" class="thumbnail">
 					<img src="img/pizza.jpg" alt="">
 				</a>
 				<h3 class="text-center">Food</h3>
-				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc suscipit convallis nisl, eget rutrum lectus commodo at. Pellentesque mattis justo vel augue pretium euismod. Interdum et malesuada fames ac ante ipsum primis in faucibus. Fusce eu turpis eros.</p>
-				<a href="#food" class="btn btn-danger">View</a>
+				<p>Here at Fat Cat Pizza, we offer a unique pizza-building experience.  You'll be in control every step of the way!  We also offer some delicious desserts!  Click the picture above to see!</p>
 			</div>
 			<div class="col-sm-4">
-				<a href="#" class="thumbnail">
+				<a href="http://www.addictinggames.com" class="thumbnail">
 					<img src="img/tic.jpg" alt="">
 				</a>
 				<h3 class="text-center">Games</h3>
-				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc suscipit convallis nisl, eget rutrum lectus commodo at. Pellentesque mattis justo vel augue pretium euismod. Interdum et malesuada fames ac ante ipsum primis in faucibus. Fusce eu turpis eros.</p>
-				<a href="#games" class="btn btn-danger">View</a>
+				<p>Bored?  Need something to pass the time?  Want a chance of winning a free dessert?  Click the picture above to give it a shot!</p>
 			</div>
 		</div>
 	</div>
@@ -133,7 +116,7 @@
     <div class="navbar navbar-inverse navbar-fixed-bottom" role="navigation">
     	<div class="container">
     		<div class="navbar-text pull-left">
-    			<p id="table">Table 1</p>
+    			<p id="table"><a href="#logout" data-toggle="modal">Table 1</a>   | <a href="#">Click here for Nutritional information!</a></p>
     		</div>
     		<div class="navbar-text pull-right">
     			<a href="#"><i class="fa fa-facebook-square fa-2x"></i></a>
@@ -145,13 +128,60 @@
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <div class="modal fade" id="contact" role="dialog">
+    <div class="modal fade" id="drink-chooser" role="dialog">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <form class="form-horizontal" role="form">
+            <div class="modal-header">
+              <div class="navbar navbar-default navbar-fixed-top">
+                <a class="navbar-brand" href="#">Drink Chooser</a>
+              </div>
+            </div>
+	    	<div class="modal-body">
+    					<ul class="row list-unstyled">
+							<li class="col-lg-2 col-md-2 col-sm-3 col-xs-4">
+								<a class="btn btn-default" data-dismiss="modal" data-toggle="modal" href="#drinks">
+									<img class="img-responsive" src="img/soda-thumbnails/coke.jpg">
+								</a>
+							</li>
+							<li class="col-lg-2 col-md-2 col-sm-3 col-xs-4">
+								<a class="btn btn-default" data-dismiss="modal" data-toggle="modal" href="#drinks">
+									<img class="img-responsive" src="img/soda-thumbnails/sierra-mist.jpg">
+								</a>
+							</li>
+							<li class="col-lg-2 col-md-2 col-sm-3 col-xs-4">
+								<a class="btn btn-default" data-dismiss="modal" data-toggle="modal" href="#drinks">
+									<img class="img-responsive" src="img/soda-thumbnails/dr-pepper.jpg">
+								</a>
+							</li>
+							<li class="col-lg-2 col-md-2 col-sm-3 col-xs-4">
+								<a class="btn btn-default" data-dismiss="modal" data-toggle="modal" href="#drinks">
+									<img class="img-responsive" src="img/soda-thumbnails/diet-coke.jpg">
+								</a>
+							</li>
+							<li class="col-lg-2 col-md-2 col-sm-3 col-xs-4">
+								<a class="btn btn-default" data-dismiss="modal" data-toggle="modal" href="#drinks">
+									<img class="img-responsive" src="img/soda-thumbnails/fanta.jpg">
+								</a>
+							</li>
+							<li class="col-lg-2 col-md-2 col-sm-3 col-xs-4">
+								<a class="btn btn-default" data-dismiss="modal" data-toggle="modal" href="#drinks">
+									<img class="img-responsive" src="img/soda-thumbnails/coke-zero.jpg">
+								</a>
+							</li>
+    					</ul>
+	    	  </div>
+    	  </form>
+    	</div>
+	  </div>
+    </div>
+    <div class="modal fade" id="login" role="dialog">
     	<div class="modal-dialog">
     		<div class="modal-content">
     			<form class="form-horizontal" role="form">
     				<div class="modal-header">
-    					<h4>Login<h4>
-	    			</div>
+    					<h4>Login</h4>
+					</div>
 	    			<div class="modal-body">
     					<div class="form-group">
     						<label for="email-address" class="col-sm-2 control-label">Email</label>
@@ -174,8 +204,8 @@
     					<a class="btn btn-default" data-dismiss="modal">Close</a>
     					<button type="submit" class="btn btn-primary">Login</button>
     				</div>
-    			</form>
-    		</div>
+				</form>
+			</div>
     	</div>
     </div>
 	<div class="modal fade" id="register" role="dialog">
@@ -212,14 +242,16 @@
     			</form>
     		</div>
     	</div>
+			</div>
+		</div>
     </div>
-    <div class="modal fade" id="refill" role="dialog">
+    <div class="modal fade" id="drinks" role="dialog">
       <div class="modal-dialog">
         <div class="modal-content">
           <form class="form-horizontal" role="form">
             <div class="modal-header">
               <div class="navbar navbar-default navbar-fixed-top">
-                <a class="navbar-brand" href="#">Refill</a>
+                <a class="navbar-brand" href="#">Drinks</a>
               </div>
             </div>
             <div class="modal-body">
@@ -227,14 +259,20 @@
                 <thead>
                   <tr>
                     <th>Guest</th>
-                    <th>Refill</th>
+                    <th>Refill?</th>
+                    <th>Drink</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr>
                     <th>Andrew</th>
                     <th>
-                      <input type="checkbox">
+						<input type="checkbox">
+                    </th>
+                    <th>
+						<a href="#drink-chooser" class="btn btn-default" data-toggle="modal" data-dismiss="modal">
+							Choose
+						</a>
                     </th>
                   </tr>
                    <tr>
@@ -242,17 +280,32 @@
                     <th>
                       <input type="checkbox">
                     </th>
+                    <th>
+                      <a href="#drink-chooser" class="btn btn-default" data-toggle="modal" data-dismiss="modal">
+							Choose
+					  </a>
+                    </th>
                   </tr>
                    <tr>
                     <th>Carrie</th>
                     <th>
-                      <input type="checkbox">
+                      <input type="checkbox" checked>
+                    </th>
+                    <th>
+                      <a href="#drink-chooser" class="btn btn-default" data-toggle="modal" data-dismiss="modal">
+							Change
+					  </a>
                     </th>
                   </tr>
                    <tr>
                     <th>Frank</th>
                     <th>
-                        <input type="checkbox">
+                        <input type="checkbox" checked>
+                    </th>
+                    <th>
+                      <a href="#drink-chooser" class="btn btn-default" data-toggle="modal" data-dismiss="modal">
+							Change
+					  </a>
                     </th>
                   </tr>
                    <tr>
@@ -260,18 +313,309 @@
                     <th>
                       <input type="checkbox">
                     </th>
+                    <th>
+                      <a href="#drink-chooser" class="btn btn-default" data-toggle="modal" data-dismiss="modal">
+							Choose
+					  </a>
+                    </th>
                   </tr>
                 </tbody>
               </table>
             <div class="modal-footer">
               <a class="btn btn-default" data-dismiss="modal">Close</a>
-              <button type="submit" class="btn btn-primary">Refill</button>
+              <button type="submit" class="btn btn-primary">Order</button>
             </div>
           </form>
         </div>
       </div>
     </div>
-
+	</div>
+    <div class="modal fade" id="help" role="dialog">
+    	<div class="modal-dialog">
+    		<div class="modal-content">
+    			<form class="form-horizontal" role="form">
+					<div class="modal-header">
+						<div class="navbar navbar-default navbar-fixed-top">
+							<a class="navbar-brand" href="#">Need Help?</a>
+						</div>
+					</div>
+	    			<div class="modal-body">
+						<p>Wait-staff are on the way!</p>
+	    			</div>
+	    			<div class="modal-footer">
+    					<a class="btn btn-default" data-dismiss="modal">Close</a>
+    				</div>
+    			</form>
+    		</div>
+    	</div>
+	</div>
+    <div class="modal fade" id="food" role="dialog">
+    	<div class="modal-dialog">
+    		<div class="modal-content">
+    			<form class="form-horizontal" role="form">
+					<div class="modal-header">
+						<div class="navbar navbar-default navbar-fixed-top">
+							<a class="navbar-brand" href="#">What do you want to look at?</a>
+						</div>
+					</div>
+	    			<div class="modal-body">
+						<div class="row">
+							<div class="col-sm-4">
+								<a href="#appetizers" class="thumbnail" data-toggle="modal" data-dismiss="modal">
+									<img src="img/breadsticks.jpg" alt="breadsticks">
+								</a>
+								<p class="text-center">
+									Appetizers
+								</p>
+							</div>
+							<div class="col-sm-4">
+								<a href="#" class="thumbnail" data-toggle="modal" data-dismiss="modal">
+									<img src="img/pizza.jpg" alt="pizza">
+								</a>
+								<p class="text-center">
+									Pizza
+								</p>
+							</div>
+							<div class="col-sm-4">
+								<a href="#desserts" class="thumbnail" data-toggle="modal" data-dismiss="modal">
+									<img src="img/molten-cake.jpg" alt="molten cake">
+								</a>
+								<p class="text-center">
+									Desserts
+								</p>
+							</div>
+						</div>
+	    			</div>
+	    			<div class="modal-footer">
+    					<a class="btn btn-default" data-dismiss="modal">Close</a>
+    				</div>
+    			</form>
+    		</div>
+    	</div>
+    </div>
+    <div class="modal fade" id="appetizers" role="dialog">
+    	<div class="modal-dialog">
+    		<div class="modal-content">
+    			<form class="form-horizontal" role="form">
+					<div class="modal-header">
+						<div class="navbar navbar-default navbar-fixed-top">
+							<a class="navbar-brand" href="#">Appetizers</a>
+						</div>
+					</div>
+	    			<div class="modal-body">
+						<p>Lorem Ipsum blah blah blah</p>
+	    			</div>
+	    			<div class="modal-footer">
+    					<a class="btn btn-default" data-dismiss="modal">Close</a>
+    				</div>
+    			</form>
+    		</div>
+    	</div>
+	</div>
+    <div class="modal fade" id="desserts" role="dialog">
+    	<div class="modal-dialog">
+    		<div class="modal-content">
+    			<form class="form-horizontal" role="form">
+					<div class="modal-header">
+						<div class="navbar navbar-default navbar-fixed-top">
+							<a class="navbar-brand" href="#">Desserts</a>
+						</div>
+					</div>
+	    			<div class="modal-body">
+						<p>Lorem Ipsum blah blah blah blah</p>
+	    			</div>
+	    			<div class="modal-footer">
+    					<a class="btn btn-default" data-dismiss="modal">Close</a>
+    				</div>
+    			</form>
+    		</div>
+    	</div>
+	</div>
+    <div class="modal fade" id="logout" role="dialog">
+    	<div class="modal-dialog">
+    		<div class="modal-content">
+    			<form class="form-horizontal" role="form">
+    				<div class="modal-header">
+    					<h4>Logout</h4>
+					</div>
+	    			<div class="modal-body">
+    					<div class="form-group">
+    						<label for="logout-username" class="col-sm-2 control-label">Username</label>
+    						<div class="col-sm-10">
+    							<input type="text" class="form-control" id="logout-username" placeholder="Username">
+    						</div>
+    					</div>
+    					<div class="form-group">
+    						<label for="logout-password" class="col-sm-2 control-label">Password</label>
+    						<div class="col-sm-10">
+    							<input type="password" class="form-control" id="logout-password" placeholder="********">
+    						</div>
+    					</div>
+	    			</div>
+	    			<div class="modal-footer">
+    					<a class="btn btn-default" data-dismiss="modal">Close</a>
+    					<button type="submit" class="btn btn-primary">Logout</button>
+    				</div>
+				</form>
+			</div>
+    	</div>
+    </div>
+    <div class="modal fade" id="pay" role="dialog">
+    	<div class="modal-dialog">
+    		<div class="modal-content">
+    			<form class="form-horizontal" role="form">
+					<div class="modal-header">
+						<div class="navbar navbar-default navbar-fixed-top">
+							<a class="navbar-brand" href="#">Pay the bill</a>
+						</div>
+					</div>
+	    			<div class="modal-body">
+						<div class="row">
+							<div class="col-sm-4">
+								<a href="#card" class="thumbnail" data-toggle="modal" data-dismiss="modal">
+									<img src="img/credit-card.png" alt="breadsticks">
+								</a>
+								<p class="text-center">
+									Card
+								</p>
+							</div>
+							<div class="col-sm-4">
+								<a href="#cash" class="thumbnail" data-toggle="modal" data-dismiss="modal">
+									<img src="img/cash.png" alt="cash">
+								</a>
+								<p class="text-center">
+									Cash
+								</p>
+							</div>
+							<div class="col-sm-4">
+								<p class="text-right">
+									Pizza x 2
+								</p>
+								<p class="text-right">
+									Drink x 2
+								</p>
+								<p class="text-right">
+									Appetizer x 1
+								</p>
+								<p class="text-right">
+									Dessert x 1
+								</p>
+							</div>
+						</div>
+	    			</div>
+	    			<div class="modal-footer">
+    					<a class="btn btn-default" data-dismiss="modal">Close</a>
+    				</div>
+    			</form>
+    		</div>
+    	</div>
+    </div>
+    <div class="modal fade" id="cash" role="dialog">
+    	<div class="modal-dialog">
+    		<div class="modal-content">
+    			<form class="form-horizontal" role="form">
+					<div class="modal-header">
+						<div class="navbar navbar-default navbar-fixed-top">
+							<a class="navbar-brand" href="#">Paying with cash?</a>
+						</div>
+					</div>
+	    			<div class="modal-body">
+						<p>Part of our wait-staff will be with you shortly.</p>
+	    			</div>
+	    			<div class="modal-footer">
+    					<a class="btn btn-default" data-dismiss="modal">Close</a>
+    				</div>
+    			</form>
+    		</div>
+    	</div>
+	</div>
+    <div class="modal fade" id="card" role="dialog">
+    	<div class="modal-dialog">
+    		<div class="modal-content">
+    			<form class="form-horizontal" role="form">
+    				<div class="modal-header">
+    					<h4>Paying with Card</h4>
+					</div>
+	    			<div class="modal-body">
+    					<div class="form-group">
+    						<label for="Card Number" class="col-sm-2 control-label">Card #</label>
+    						<div class="col-sm-10">
+    							<input type="text" class="form-control" id="card-number" placeholder="">
+    						</div>
+    					</div>
+    					<div class="form-group">
+    						<label for="card-code" class="col-sm-2 control-label">SVC #</label>
+    						<div class="col-sm-10">
+    							<input type="password" class="form-control" id="card-code" placeholder="***">
+    						</div>
+    					</div>
+	    			</div>
+	    			<div class="modal-footer">
+    					<a href="#tip" class="btn btn-primary" data-dismiss="modal" data-toggle="modal">Next Step</a>
+    					<button type="submit" class="btn btn-default">Close</button>
+    				</div>
+				</form>
+			</div>
+    	</div>
+    </div>
+    <div class="modal fade" id="tip" role="dialog">
+    	<div class="modal-dialog">
+    		<div class="modal-content">
+    			<form class="form-horizontal" role="form">
+    				<div class="modal-header">
+    					<h4>Add the tip</h4>
+					</div>
+	    			<div class="modal-body">
+    					<div class="form-group">
+    						<label for="Card Number" class="col-sm-2 control-label">Tip Amount</label>
+    						<div class="col-sm-10">
+    							<input type="text" class="form-control" id="card-number" placeholder="Type the amount or a percentage (i.e $4 or 10%)">
+    						</div>
+    					</div>
+	    			</div>
+	    			<div class="modal-footer">
+    					<a class="btn btn-primary" data-dismiss="modal" data-toggle="modal" href="#confirm-check">Next Step</a>
+    					<button type="submit" class="btn btn-default">Close</button>
+    				</div>
+				</form>
+			</div>
+    	</div>
+    </div>
+    <div class="modal fade" id="confirm-check" role="dialog">
+    	<div class="modal-dialog">
+    		<div class="modal-content">
+    			<form class="form-horizontal" role="form">
+    				<div class="modal-header">
+    					<h4>Paying with Card</h4>
+					</div>
+	    			<div class="modal-body">
+    					<div class="form-group">
+    						<label for="Card Number" class="col-sm-2 control-label">Bill: </label>
+    						<div class="col-sm-10">
+    							<input type="text" id="bill-total" placeholder="$18.32" readonly>
+    						</div>
+    					</div>
+    					<div class="form-group">
+    						<label for="tip-amount" class="col-sm-2 control-label">Tip Amount: </label>
+    						<div class="col-sm-10">
+    							<input type="text" id="tip-amount" placeholder="$4.32" readonly>
+    						</div>
+    					</div>
+    					<div class="form-group">
+							<label for="total" class="col-sm-2 control-label">Total: </label>
+							<div class="col-sm-10">
+								<input type="text" id="total" placeholder="$22.64" readonly>
+							</div>
+    					</div>
+	    			</div>
+	    			<div class="modal-footer">
+    					<a class="btn btn-primary" data-dismiss="modal" data-toggle="modal">Correct</a>
+    					<a class="btn btn-default" data-dismiss="modal" data-toggle="modal" href="#tip">Go back</a>
+    				</div>
+				</form>
+			</div>
+    	</div>
+    </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
   </body>
