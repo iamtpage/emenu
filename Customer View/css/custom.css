@@ -68,7 +68,7 @@ h1, h2, h3, h4, h5, h6 {
 .open .dropdown-toggle.btn-primary {
 	color: #FFFFFF;
 	background-color: rgba(0, 178, 51, 0.5);
-	border-color: #FFFFFF; 
+	border-color: #FFFFFF;
 }
 
 .btn-success {
@@ -84,7 +84,7 @@ h1, h2, h3, h4, h5, h6 {
 .open .dropdown-toggle.btn-success {
 	color: #FFFFFF;
 	background-color: #13987E;
-	border-color: #13987E; 
+	border-color: #13987E;
 }
 
 .btn-default {
@@ -140,4 +140,8 @@ h1, h2, h3, h4, h5, h6 {
 #under-specials
 {
 	margin-top:20px;
+}
+.modal-body {
+    max-height: 420px;
+    overflow-y: auto;
 }
