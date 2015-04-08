@@ -116,7 +116,7 @@
     <div class="navbar navbar-inverse navbar-fixed-bottom" role="navigation">
     	<div class="container">
     		<div class="navbar-text pull-left">
-    			<p id="table"><a href="#logout" data-toggle="modal">Table 1</a>   | <a href="#">Click here for Nutritional information!</a></p>
+    			<p id="table"><a href="#logout" data-toggle="modal">Table 1</a>   | <a href="#nutrition-info" data-toggle="modal">Click here for Nutritional information!</a></p>
     		</div>
     		<div class="navbar-text pull-right">
     			<a href="#"><i class="fa fa-facebook-square fa-2x"></i></a>
@@ -698,6 +698,90 @@
     			</form>
     		</div>
     	</div>
+	</div>
+	<div class="modal fade" id="nutrition-info" role="dialog">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <form class="form-horizontal" role="form">
+            <div class="modal-header">
+              <div class="navbar navbar-default navbar-fixed-top">
+                <a class="navbar-brand" href="#">Nutrional Information</a>
+              </div>
+            </div>
+            <div class="modal-body">
+              <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th>Item</th>
+                    <th>Calories (Per Serving)</th>
+                    <th>Allergy</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th>Pan Crust</th>
+                    <th>300 Calories</th>
+                    <th>Gluten, Wheat</th>
+                 </tr>
+                 <tr>
+                    <th>Hand Tossed</th>
+                    <th>400 Calories</th>
+                    <th>Gluten, Wheat</th>
+                 </tr>
+                 <tr>
+                    <th>Stuffed Crust</th>
+                    <th>800 Calories</th>
+                    <th>Gluten, Wheat, Dairy</th>
+                 </tr>
+                 <tr>
+                    <th>Marinara Sauce</th>
+                    <th>200 Calories</th>
+                    <th>Tomatoes</th>
+                 </tr>
+                 <tr>
+                    <th>Alfredo Sauce</th>
+                    <th>300 Calories</th>
+                    <th>Gluten, Dairy</th>
+                 </tr>
+                 <tr>
+                    <th>Shredded American Cheese</th>
+                    <th>200 Calories</th>
+                    <th>Dairy</th>
+                 </tr>
+                 <tr>
+                    <th>Tomatoes</th>
+                    <th>50 Calories</th>
+                    <th>Tomatoes</th>
+                 </tr>
+                 <tr>
+                    <th>Mozzarella Cheese</th>
+                    <th>300 Calories</th>
+                    <th>Dairy</th>
+                 </tr>
+                 <tr>
+                    <th>Sliced Mushrooms</th>
+                    <th>30 Calories</th>
+                    <th>Mushrooms</th>
+                 </tr>
+                 <tr>
+                    <th>Sliced Pepperoni</th>
+                    <th>100 Calories</th>
+                    <th>Pepperoni</th>
+                 </tr>
+                 <tr>
+                    <th>Diced Onions</th>
+                    <th>30 Calories</th>
+                    <th>Onions</th>
+                 </tr>
+                </tbody>
+              </table>
+            <div class="modal-footer">
+              <a class="btn btn-default" data-dismiss="modal">Close</a>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
 	</div>
   </body>
 </html>
