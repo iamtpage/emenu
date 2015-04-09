@@ -380,7 +380,11 @@
 						</div>
 	    			</div>
 	    			<div class="modal-footer">
-    					<a class="btn btn-default" data-dismiss="modal">Close</a>
+						<div class="pull-left">
+							Is this order To-Go?
+							<input type="checkbox">
+						</div>
+    					<a class="btn btn-default pull-right" data-dismiss="modal">Close</a>
     				</div>
     			</form>
     		</div>
@@ -483,17 +487,11 @@
 								</p>
 							</div>
 							<div class="col-sm-4">
-								<p class="text-right">
-									Pizza x 2
-								</p>
-								<p class="text-right">
-									Drink x 2
-								</p>
-								<p class="text-right">
-									Appetizer x 1
-								</p>
-								<p class="text-right">
-									Dessert x 1
+								<a href="#split-check" class="thumbnail" data-toggle="modal" data-dismiss="modal">
+									<img src="img/split-check.png" alt="split">
+								</a>
+								<p class="text-center">
+									Split the Check
 								</p>
 							</div>
 						</div>
@@ -562,7 +560,7 @@
 					</div>
 	    			<div class="modal-body">
     					<div class="form-group">
-    						<label for="Card Number" class="col-sm-2 control-label">Tip Amount</label>
+    						<label for="Card Number" class="col-sm-2 control-label">Tip</label>
     						<div class="col-sm-10">
     							<input type="text" class="form-control" id="card-number" placeholder="Type the amount or a percentage (i.e $4 or 10%)">
     						</div>
@@ -591,7 +589,7 @@
     						</div>
     					</div>
     					<div class="form-group">
-    						<label for="tip-amount" class="col-sm-2 control-label">Tip Amount: </label>
+    						<label for="tip-amount" class="col-sm-2 control-label">Tip: </label>
     						<div class="col-sm-10">
     							<input type="text" class="form-control" id="tip-amount" placeholder="$4.32" readonly>
     						</div>
@@ -604,7 +602,7 @@
     					</div>
 	    			</div>
 	    			<div class="modal-footer">
-    					<a class="btn btn-primary" data-dismiss="modal" data-toggle="modal">Correct</a>
+    					<a class="btn btn-primary" data-dismiss="modal" data-toggle="modal" href="#receipt">Correct</a>
     					<a class="btn btn-warning" data-dismiss="modal" data-toggle="modal" href="#coupon">I have a coupon</a>
     					<a class="btn btn-default" data-dismiss="modal" data-toggle="modal" href="#tip">Go back</a>
     				</div>
@@ -803,6 +801,137 @@
         </div>
       </div>
     </div>
-	</div>
+	<div class="modal fade" id="receipt" role="dialog">
+    	<div class="modal-dialog">
+    		<div class="modal-content">
+    			<form class="form-horizontal" role="form">
+					<div class="modal-header">
+						<div class="navbar navbar-default navbar-fixed-top">
+							<a class="navbar-brand" href="#">How do you want your receipt?</a>
+						</div>
+					</div>
+	    			<div class="modal-body">
+						<div class="row">
+							<div class="col-sm-6">
+								<a href="#show-receipt" class="thumbnail" data-toggle="modal" data-dismiss="modal">
+									<img src="img/print.png" alt="print">
+								</a>
+								<p class="text-center">
+									Print
+								</p>
+							</div>
+							<div class="col-sm-6">
+								<a href="#email" class="thumbnail" data-toggle="modal" data-dismiss="modal">
+									<img src="img/email.png" alt="email">
+								</a>
+								<p class="text-center">
+									Email
+								</p>
+							</div>
+						</div>
+	    			</div>
+	    			<div class="modal-footer">
+    					<a class="btn btn-default" data-dismiss="modal">Close</a>
+    				</div>
+    			</form>
+    		</div>
+    	</div>
+    </div>
+	<div class="modal fade" id="email" role="dialog">
+    	<div class="modal-dialog">
+    		<div class="modal-content">
+    			<form class="form-horizontal" role="form">
+    				<div class="modal-header">
+    					<h4>Type Your email address</h4>
+					</div>
+	    			<div class="modal-body">
+    					<div class="form-group">
+    						<label for="receipt-email" class="col-sm-2 control-label">Email</label>
+    						<div class="col-sm-10">
+    							<input type="text" class="form-control" id="receipt-email" placeholder="Email Address">
+    						</div>
+    					</div>
+	    			</div>
+	    			<div class="modal-footer">
+    					<a class="btn btn-default" data-dismiss="modal">Email my receipt</a>
+    				</div>
+				</form>
+			</div>
+    	</div>
+    </div>
+	<div class="modal fade" id="show-receipt" role="dialog">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <form class="form-horizontal" role="form">
+            <div class="modal-header">
+              <div class="navbar navbar-default navbar-fixed-top">
+                <a class="navbar-brand" href="#">Nutrional Information</a>
+              </div>
+            </div>
+            <div class="modal-body">
+              <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th>Item</th>
+                    <th>Price</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th>1 Personal Pizza</th>
+                    <th>$13.00</th>
+                 </tr>
+                 <tr>
+                    <th>2 Drinks</th>
+                    <th>$5 ($2.50 each)</th>
+                 </tr>
+                 <tr>
+                    <th>1 Lava Cake</th>
+                    <th>$6</th>
+                 </tr>
+                 <tr>
+                    <th>------------</th>
+                    <th>------------</th>
+                 </tr>
+                 <tr>
+                    <th>Tip:</th>
+                    <th>$5</th>
+                 </tr>
+                 <tr>
+					<th>Total:</th>
+					<th>$29.00</th>
+                 </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+              <a class="btn btn-default" data-dismiss="modal">Close</a>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+	<div class="modal fade" id="split-check" role="dialog">
+    	<div class="modal-dialog">
+    		<div class="modal-content">
+    			<form class="form-horizontal" role="form">
+    				<div class="modal-header">
+    					<h4>How many ways?</h4>
+					</div>
+	    			<div class="modal-body">
+    					<div class="form-group">
+    						<label for="receipt-email" class="col-sm-2 control-label">Ways to Split</label>
+    						<div class="col-sm-10">
+    							<input type="text" class="form-control" id="receipt-email" placeholder="Type the number (1-4)">
+    						</div>
+    					</div>
+	    			</div>
+	    			<div class="modal-footer">
+    					<a class="btn btn-default" data-dismiss="modal" data-toggle="modal" href="#pay">Split the check</a>
+    				</div>
+				</form>
+			</div>
+    	</div>
+    </div>
   </body>
 </html>
