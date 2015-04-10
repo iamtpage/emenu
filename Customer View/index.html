@@ -186,13 +186,13 @@
     					<div class="form-group">
     						<label for="email-address" class="col-sm-2 control-label">Email</label>
     						<div class="col-sm-10">
-    							<input type="text" class="form-control" id="login-email" placeholder="Email Address">
+    							<input type="email"  required class="form-control" id="login-email" placeholder="Email Address">
     						</div>
     					</div>
     					<div class="form-group">
     						<label for="login-password" class="col-sm-2 control-label">Password</label>
     						<div class="col-sm-10">
-    							<input type="password" class="form-control" id="login-password" placeholder="********">
+    							<input type="password" required class="form-control" id="login-password" placeholder="********">
     						</div>
     					</div>
     					<div class="form-group" align="center">
@@ -219,19 +219,19 @@
 						<div class="form-group">
     						<label for="register-name" class="col-sm-2 control-label">Name</label>
     						<div class="col-sm-10">
-    							<input type="text" class="form-control" id="register-name" placeholder="Name">
+    							<input type="text" required class="form-control" id="register-name" placeholder="Name">
     						</div>
     					</div>
     					<div class="form-group">
     						<label for="register-email" class="col-sm-2 control-label">Email</label>
     						<div class="col-sm-10">
-    							<input type="text" class="form-control" id="register-email" placeholder="Email Address">
+    							<input type="email" required class="form-control" id="register-email" placeholder="Email Address">
     						</div>
     					</div>
     					<div class="form-group">
     						<label for="register-password" class="col-sm-2 control-label">Password</label>
     						<div class="col-sm-10">
-    							<input type="password" class="form-control" id="register-password" placeholder="********">
+    							<input type="password" required class="form-control" id="register-password" placeholder="********">
     						</div>
     					</div>
 	    			</div>
@@ -441,13 +441,13 @@
     					<div class="form-group">
     						<label for="logout-username" class="col-sm-2 control-label">Username</label>
     						<div class="col-sm-10">
-    							<input type="text" class="form-control" id="logout-username" placeholder="Username">
+    							<input type="text" required class="form-control" id="logout-username" placeholder="Username">
     						</div>
     					</div>
     					<div class="form-group">
     						<label for="logout-password" class="col-sm-2 control-label">Password</label>
     						<div class="col-sm-10">
-    							<input type="password" class="form-control" id="logout-password" placeholder="********">
+    							<input type="password" required class="form-control" id="logout-password" placeholder="********">
     						</div>
     					</div>
 	    			</div>
@@ -533,18 +533,20 @@
     					<div class="form-group">
     						<label for="Card Number" class="col-sm-2 control-label">Card #</label>
     						<div class="col-sm-10">
-    							<input type="text" class="form-control" id="card-number" placeholder="">
+    							<input type="number" maxlength="16" required class="form-control" id="card-number" placeholder="1111-2222-3333-4444">
     						</div>
     					</div>
     					<div class="form-group">
     						<label for="card-code" class="col-sm-2 control-label">SVC #</label>
     						<div class="col-sm-10">
-    							<input type="password" class="form-control" id="card-code" placeholder="***">
+    							<input type="password" maxlength="3" required class="form-control" id="card-code" placeholder="***">
     						</div>
     					</div>
 	    			</div>
 	    			<div class="modal-footer">
-    					<a href="#tip" class="btn btn-primary" data-dismiss="modal" data-toggle="modal">Next Step</a>
+    					<button type="submit" class="btn btn-primary">
+                            <a href="#tip" data-dismiss="modal" data-toggle="modal">Next Step</a>
+                        </button>
     					<button type="submit" class="btn btn-default">Close</button>
     				</div>
 				</form>
@@ -562,12 +564,12 @@
     					<div class="form-group">
     						<label for="Card Number" class="col-sm-2 control-label">Tip</label>
     						<div class="col-sm-10">
-    							<input type="text" class="form-control" id="card-number" placeholder="Type the amount or a percentage (i.e $4 or 10%)">
+    							<input type="number" required min="0" class="form-control" id="card-number" placeholder="Type the amount or a percentage (i.e $4 or 10%)">
     						</div>
     					</div>
 	    			</div>
 	    			<div class="modal-footer">
-    					<a class="btn btn-primary" data-dismiss="modal" data-toggle="modal" href="#confirm-check">Next Step</a>
+                        <a href="#confirm-check" data-dismiss="modal" data-toggle="modal">Next Step</a>
     					<button type="submit" class="btn btn-default">Close</button>
     				</div>
 				</form>
@@ -848,7 +850,7 @@
     					<div class="form-group">
     						<label for="receipt-email" class="col-sm-2 control-label">Email</label>
     						<div class="col-sm-10">
-    							<input type="text" class="form-control" id="receipt-email" placeholder="Email Address">
+    							<input type="email" required class="form-control" id="receipt-email" placeholder="Email Address">
     						</div>
     					</div>
 	    			</div>
@@ -922,7 +924,7 @@
     					<div class="form-group">
     						<label for="receipt-email" class="col-sm-2 control-label">Ways to Split</label>
     						<div class="col-sm-10">
-    							<input type="text" class="form-control" id="receipt-email" placeholder="Type the number (1-4)">
+    							<input type="number" required min="1" class="form-control" id="receipt-email" placeholder="Type the number (1-4)">
     						</div>
     					</div>
 	    			</div>
@@ -945,27 +947,27 @@
 	    			<div class="modal-body">
 						<ul class="row list-unstyled centered">
 							<li class="col-md-2">
-								<a class="btn btn-default" id="win-3" data-dismiss="modal" onclick="win(3)">
+								<a class="btn btn-default" data-dismiss="modal" onclick="win(3)">
 									?????
 								</a>
 							</li>
 							<li class="col-md-2">
-								<a class="btn btn-default" id="win-2" data-dismiss="modal" onclick="win(2)">
+								<a class="btn btn-default" data-dismiss="modal" onclick="win(2)">
 									?????
 								</a>
 							</li>
 							<li class="col-md-2">
-								<a class="btn btn-default" id="win-1" data-dismiss="modal" onclick="win(1)">
+								<a class="btn btn-default" data-dismiss="modal" onclick="win(1)">
 									?????
 								</a>
 							</li>
 							<li class="col-md-2">
-								<a class="btn btn-default" id="win-4" data-dismiss="modal" onclick="win(4)">
+								<a class="btn btn-default" data-dismiss="modal" onclick="win(4)">
 									?????
 								</a>
 							</li>
 							<li class="col-md-2">
-								<a class="btn btn-default" id="win-5" data-dismiss="modal" onclick="win(5)>
+								<a class="btn btn-default" data-dismiss="modal" onclick="win(5)">
 									?????
 								</a>
 							</li>
@@ -980,16 +982,19 @@
 	</div>
 
 	<script>
-		function win(var choice) {
+		function win(choice) {
 			var choices=["1","2","3","4","5"]
 			var right_choice = Math.floor(Math.random() * choices.length);
 
-			console.error(choices[right_choice]);
-
-			if(choice == choices[right_choice)
+			if(choice == choices[right_choice])
 			{
 				alert("You win a free dessert!");
 			}
+            
+            else
+            {
+                alert("Sorry, the right button was button number: " +choices[right_choice])
+            }
 		}
 	</script>
   </body>
