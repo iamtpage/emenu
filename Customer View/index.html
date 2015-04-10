@@ -101,7 +101,7 @@
 				<p>Here at Fat Cat Pizza, we offer a unique pizza-building experience.  You'll be in control every step of the way!  We also offer some delicious desserts!  Click the picture above to see!</p>
 			</div>
 			<div class="col-sm-4">
-				<a href="http://www.addictinggames.com" class="thumbnail">
+				<a href="#game" class="thumbnail" data-toggle="modal">
 					<img src="img/tic.jpg" alt="">
 				</a>
 				<h3 class="text-center">Games</h3>
@@ -706,7 +706,7 @@
                 <a class="navbar-brand" href="#">Nutrional Information</a>
               </div>
             </div>
-            <div class="modal-body">
+            <div class="modal-body modal-body-big">
               <table class="table table-striped">
                 <thead>
                   <tr>
@@ -933,5 +933,64 @@
 			</div>
     	</div>
     </div>
+	<div class="modal fade" id="game" role="dialog">
+    	<div class="modal-dialog">
+    		<div class="modal-content">
+    			<form class="form-horizontal" role="form">
+					<div class="modal-header">
+						<div class="navbar navbar-default navbar-fixed-top">
+							<a class="navbar-brand" href="#">Choose the right button!</a>
+						</div>
+					</div>
+	    			<div class="modal-body">
+						<ul class="row list-unstyled centered">
+							<li class="col-md-2">
+								<a class="btn btn-default" id="win-3" data-dismiss="modal" onclick="win(3)">
+									?????
+								</a>
+							</li>
+							<li class="col-md-2">
+								<a class="btn btn-default" id="win-2" data-dismiss="modal" onclick="win(2)">
+									?????
+								</a>
+							</li>
+							<li class="col-md-2">
+								<a class="btn btn-default" id="win-1" data-dismiss="modal" onclick="win(1)">
+									?????
+								</a>
+							</li>
+							<li class="col-md-2">
+								<a class="btn btn-default" id="win-4" data-dismiss="modal" onclick="win(4)">
+									?????
+								</a>
+							</li>
+							<li class="col-md-2">
+								<a class="btn btn-default" id="win-5" data-dismiss="modal" onclick="win(5)>
+									?????
+								</a>
+							</li>
+						</ul>
+	    			</div>
+	    			<div class="modal-footer">
+    					<a class="btn btn-default" data-dismiss="modal">Close</a>
+    				</div>
+    			</form>
+    		</div>
+    	</div>
+	</div>
+
+	<script>
+		function win(var choice) {
+			var choices=["1","2","3","4","5"]
+			var right_choice = Math.floor(Math.random() * choices.length);
+
+			console.error(choices[right_choice]);
+
+			if(choice == choices[right_choice)
+			{
+				alert("You win a free dessert!");
+			}
+		}
+	</script>
   </body>
 </html>
