@@ -29,42 +29,40 @@ var tables = {
 						"Pepperoni"
 					],
 					"Sauce": "Tomato",
-					"Cheese": "Mozzerella"
 				}
-			]
+			],
+			"Tip": 0,
+			"Paid": false
 		},
 		{
 			"TableNumber": 2,
 			"Customers": [
 				{
-					"Name": "Austin",
+					"Name": "Andew",
 					"Drink": "Sprite"
-				},
-				{
-					"Name": "Carrie",
-					"Drink": "Coke"
-				},
-				{
-					"Name": "Frank",
-					"Drink": "Sprite"
-				},
-				{
-					"Name": "Tyler",
-					"Drink": "Coke"
 				}
 			],
 			"Pizza": [
 				{
 					"Crust": "Pan",
 					"Toppings": [
-						"Sausage",
+						"Tomato",
 						"Ham",
 						"Pepperoni"
 					],
 					"Sauce": "Tomato",
-					"Cheese": "Mozzerella"
 				}
-			]
-		}
+			],
+			"Tip": 0
+		},
+		{
+			"TableNumber": 3,
+			"Customers": [
+			],
+			"Pizza": [
+			],
+			"Tip": 0,
+			"Paid": false
+		},
 	]
 }
