@@ -15,41 +15,14 @@
     <script src="js/bootstrap.min.js"></script>
     <script type="text/javascript" src="js/bootstrap-multiselect.js"></script>
     <script src="js/jquery-2.1.3.min.js"></script>
-    <script id="notificationJson" type="text/javascript" src="js/waitstaff-notifications.json"></script>
     <script id="tablesJson" type="text/javascript" src="js/tables.json"></script>
     <script type="text/javascript">
       //First Loads data into notifications
-      var notifications = data.notifications;
-      var past_notifications = [];
       var table_information = tables.Tables;
       var tableToChange = 0;
       var valueToEdit = 0;
       var tableTip = 0.00;
 
-      //shows the table notifications
-      function TableNotifications() {
-        var out = "";
-        var i = 0;
-        var out2 = ""
-        //Inserts the code into the header
-        out2 = '<ul class="nav navbar-nav navbar-right"><li class="active"><li><a href="#login" data-toggle="modal" onclick="ViewTables()">Tables</a></li></ul>';
-        for(i = 0; i < notifications.length; i++)
-        {
-          out += '<div id="notification-row" class="row">';
-          out += '<div class="col-md-6 col-sm-6 col-xs-6">';
-          out += '<h3>Table ' + notifications[i].TableNumber + '</h3>';
-          out += '<p>'+ notifications[i].Description + '</p>';
-          out += '</div>';
-          out += '<div class="col-md-6 col-sm-6 col-xs-6" align="right">';
-          out += '<h3></h3>';
-          //The i is the location when the x is clicked the option is removed
-          out += '<a onclick="deleteOption(' + i + ')"><i" class="fa fa-times fa-3x"></i></a>';
-          out += '</div>';
-          out += '</div>';
-        }
-        document.getElementById("notificationRows").innerHTML = out;
-        document.getElementById("navOptions").innerHTML = out2;
-      }
 
 
       //Will show table options
