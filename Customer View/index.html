@@ -100,7 +100,7 @@
 					<img src="img/soda.jpg" alt="">
 				</a>
 				<h3 class="text-center">Drinks</h3>
-				<p>We offer a variet of drinks, click the picture above to choose from our selection</p>
+				<p>We offer a variety of drinks, click the picture above to choose from our selection</p>
 			</div>
 			<div class="col-sm-4">
 				<a href="#food" data-toggle="modal" class="thumbnail">
@@ -595,26 +595,29 @@
     					<h4>Add the tip</h4>
 					</div>
 	    			<div class="modal-body">
+                    <script type="text/javascript">
+							$(document).ready(function() {
+							$('#tip-sel').multiselect();
+							});
+					</script>
     					<div class="form-group">
                             <!-- Tip label and text-box -->
 							<label for="Card Number" class="col-sm-2 control-label">Tip</label>
 								<div class="col-sm-10">
-									<input type="number" required min="0" class="form-control" id="tip-amount" placeholder="Type the amount or a percentage (i.e $4 or 10%)">
+									<input type="text" required class="form-control" id="tip-amount" placeholder="">
 								</div>
     					</div>
     					<div class="form-group">
 							<label class="col-sm-2 control-label">Percent</label>
-								<div class="dropdown col-md-4">
-									<button class="btn btn-default dropdown-toggle" type="button" id="tip-dropdown" data-toggle="dropdown" aria-expanded="true">
-										Percentage
-									<span class="caret"></span>
-									</button>
-									<ul class="dropdown-menu" role="menu" aria-labelledby="tip-dropdown">
-										<li id="tip-ten">10%</li>
-										<li id="tip-fifteen">15%</li>
-										<li id="tip-twenty">20%</li>
-									</ul>
-								</div>
+								<ul class="row list-unstyled">
+                                    <li class="col-lg-4">
+                                        <select class="unstyled" id="tip-sel">
+                                            <option value=".1">10%</option>
+                                            <option value=".15">15%</option>
+                                            <option value=".2" selected="selected">20%</option>
+                                        </select>
+                                    </li>
+                                </ul>
     					</div>
 	    			</div>
 	    			<div class="modal-footer">
@@ -698,6 +701,7 @@
 									<option value="pan">Pan</option>
 									<option value="hand-tossed">Hand-tossed</option>
 									<option value="stuffed">Stuffed</option>
+                                    <option value="kid">Kid Pizza</option>
 								</select>
 							</li>
 							<li class="col-lg-4">
@@ -1043,8 +1047,27 @@
 	<!-- simple function that randomly chooses a number 1-5
                 and if the one the customer chooses is the same,
                 they win a free dessert (5 buttons, 1/5 chance) !-->
-    <script>
 
+    <script type="text/javascript">
+							$(document).ready(function() {
+                                $('#tip').on('shown.bs.modal', function () {
+                                    var total = 15.22;
+                                    var percent = .2;
+                                    var tip = document.getElementById("tip-amount").value;
+                                    document.getElementById("tip-amount").value = "$" + (total * percent).toFixed(2);
+                                });
+							});
+	</script>
+    <script>
+                                    $('#tip-sel').multiselect({
+                                        onChange: function(option, checked, select) {
+                                            var total = 15.22;
+                                            document.getElementById("tip-amount").value = "$" + (total * $(option).val()).toFixed(2);
+                                            //alert('Changed option ' + $(option).val() + '.');
+                                        }
+                                    });
+    </script>
+    <script>
 		function win(choice) {
 			var choices=["1","2","3","4","5"]
 			var right_choice = Math.floor(Math.random() * choices.length);
@@ -1058,32 +1081,6 @@
             {
                 alert("Sorry, the right button was button number: " +choices[right_choice])
             }
-		}
-
-		function tipCalculate (slider, bill)
-		{
-			var tip = document.getElementById('tipamount');
-			var bill = document.getElementById(bill).value;
-			var prcnt = slider * .01;
-
-
-			if (bill == null || bill == '')
-			{
-				tip.innerHTML = 'Please enter an amount';
-				return false;
-			}
-
-			if(isNaN(bill))
-			{
-				tip.innerHTML = 'Please enter a number';
-				return false;
-			}
-
-			if(bill >= 0)
-			{
-				tip.innerHTML = '$' + (bill * prcnt) .toFixed(2);
-				slideval.innerHTML = slider + '%';
-			}
 		}
 	</script>
   </body>
