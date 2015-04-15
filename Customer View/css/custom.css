@@ -218,3 +218,7 @@ h1, h2, h3, h4, h5, h6 {
 .dropdown-menu {
 	min-width: 0px;
 }
+
+.hidden {
+    display:none;
+}

@@ -23,7 +23,7 @@
     <!-- Fixed navbar -->
     <div class="navbar navbar-default navbar-fixed-top" role="navigation">
       <div class="container">
-        <div class="navbar-header">
+        <div class="navbar-header" id="nav-head">
           <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
             <span class="sr-only">Toggle navigation</span>
             <span class="icon-bar"></span>
@@ -31,6 +31,7 @@
             <span class="icon-bar"></span>
           </button>
           <a class="navbar-brand" href="#">Pizza Pizza Pizza</a>
+          <a class="navbar-brand hidden" id="happy-hour"> - Happy Hour! 1/2 price drinks!</a>
         </div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
@@ -269,7 +270,7 @@
         <div class="modal-content">
           <form class="form-horizontal" role="form">
             <div class="modal-header">
-              <div class="navbar navbar-default navbar-fixed-top">
+              <div class="navbar navbar-default navbar-fixed-top" id="drink-header">
                 <a class="navbar-brand" href="#">Drinks</a>
               </div>
             </div>
@@ -377,8 +378,9 @@
     		<div class="modal-content">
     			<form class="form-horizontal" role="form">
 					<div class="modal-header">
-						<div class="navbar navbar-default navbar-fixed-top">
+						<div class="navbar navbar-default navbar-fixed-top" id="food-head">
 							<a class="navbar-brand" href="#">What do you want to look at?</a>
+                            <a class="navbar-brand hidden pull-right" id="kid-meal">Kids Eat Free Today!</a>
 						</div>
 					</div>
 	    			<div class="modal-body">
@@ -1043,9 +1045,6 @@
     		</div>
     	</div>
 	</div>
-
-
-
                 <!-- calculates tip on load of modal -->
     <script type="text/javascript">
 							$(document).ready(function() {
@@ -1057,6 +1056,53 @@
                                 });
 							});
 	</script>
+    
+    <!-- Insert a header note when its between 4 and 7pm for happy hour -->
+    <script type="text/javascript">
+    <!-- check every 15 minutes -->
+    var checkTime = setInterval(function(){
+                var currentHour = (new Date()).getHours();
+                var currentMin = (new Date()).getMinutes();
+                //if its between 4 and 7 and the header isn't there already
+                if (currentHour >= 16 && currentHour <= 18)
+                {
+                    $('#happy-hour').removeClass('hidden');
+                    $('#happy-hour').show();
+                    
+                }
+                
+                else
+                {
+                    $('#happy-hour').addClass('hidden');
+                    $('#happy-hour').hide();
+                }
+    }, 5000);
+    
+    </script>
+    
+    <!-- Checks to see if it is monday -->
+    <script type="text/javascript">
+    <!-- check every 15 minutes -->
+    var checkDay = setInterval(function(){
+                var currentDay = (new Date()).getDay();
+                var monday = 1;
+                //if its monday
+                if (currentDay == monday)
+                {
+                    $('#kid-meal').removeClass('hidden');
+                    $('#kid-meal').show();
+                    
+                }
+                
+                else
+                {
+                    $('#kid-meal').addClass('hidden');
+                    $('#kid-meal').hide();
+                }
+    }, 5000);
+    
+    </script>
+    
     <!-- calculates tip when different choice is selected from drop down box -->
     <script>
                                     $('#tip-sel').multiselect({
