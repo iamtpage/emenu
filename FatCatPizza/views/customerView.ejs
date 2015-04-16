@@ -45,7 +45,46 @@
         </div><!--/.nav-collapse -->
     </div>
 </div>
-
+<div class="container">
+    <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+            <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+            <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+            <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+            </ol>
+        <div class="carousel-inner">
+            <div class="item active">
+                <img src="./images/place-holder.jpg" alt="...">
+                <div class="text-left" id="below-caption">
+                    <h3>Your Ad here</h3>
+                    <p>Upload a file to advertise with us!</p>
+                    </div>
+                <div class="text-right" id="below-caption">
+                    <a class="btn btn-default" href="#food" data-toggle="modal">View Our Menu</a>
+                    </div>
+                </div>
+            <div class="item">
+                <img src="./images/pizza-banner.jpg" alt="...">
+                <div class="text-left" id="below-caption">
+                    <h3>Food Specials</h3>
+                    <p>Our new Spicy Pepperoni will knock your socks off!</p>
+                    </div>
+                <div class="text-right" id="below-caption">
+                    <a class="btn btn-default" href="#food" data-toggle="modal">View Our Menu</a>
+                    </div>
+                </div>
+            <div class="item">
+                <img src="./images/dessert-pizza.jpg" alt="...">
+                <div class="text-left" id="below-caption">
+                    <h3>Dessert Specials</h3>
+                    <p>Our new lava cake will melt your heart!</p>
+                    </div>
+                <div class="text-right" id="below-caption">
+                    <a class="btn btn-default" href="#desserts" data-toggle="modal">View Desserts</a>
+                    </div>
+                </div>
+            </div>
+        </div>
 <div id="homepageBody"></div>
 
 <!-- Fixed footer -->
@@ -794,7 +833,7 @@
             <form class="form-horizontal" role="form">
                 <div class="modal-header">
                     <div class="navbar navbar-default navbar-fixed-top">
-                        <a class="navbar-brand" href="#">Choose the right button!</a>
+                        <a class="navbar-brand" href="#">Choose the right button to win a free dessert!</a>
                     </div>
                 </div>
                 <div class="modal-body">
@@ -895,7 +934,7 @@
         they win a free dessert (5 buttons, 1/5 chance) !-->
 <script>
     function win(choice) {
-        var choices=["1","2","3","4","5"]
+        var choices=["1","2","3","4","5"];
         var right_choice = Math.floor(Math.random() * choices.length);
 
         if(choice == choices[right_choice])
@@ -905,7 +944,7 @@
 
         else
         {
-            alert("Sorry, the right button was button number: " +choices[right_choice])
+            alert("Sorry, the right button was button number: " +choices[right_choice]);
         }
     }
 </script>

@@ -1,8 +1,7 @@
 {
-  "username": "admin",
+  "username": "table3",
   "password": "password",
-  "type": "waitstaff",
-  "firstname": "Admin",
-  "lastname": "View",
-  "url": "/admin"
+  "type": "table",
+  "tableIndex": 2,
+  "url": "/homepage"
 }
