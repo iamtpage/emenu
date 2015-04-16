@@ -1,0 +1,72 @@
+{
+  "users": [
+    {
+      "username": "table1",
+      "password": "password",
+      "type": "table",
+      "tableIndex": 0,
+      "url": "/homepage"
+    },
+    {
+      "username": "table2",
+      "password": "password",
+      "type": "table",
+      "tableIndex": 1,
+      "url": "/homepage"
+    },
+    {
+      "username": "table3",
+      "password": "password",
+      "type": "table",
+      "tableIndex": 2,
+      "url": "/homepage"
+    },
+    {
+      "username": "table4",
+      "password": "password",
+      "type": "table",
+      "tableIndex": 3,
+      "url": "/homepage"
+    },
+    {
+      "username": "AWaters",
+      "password": "password",
+      "type": "cook",
+      "firstname": "Austin",
+      "lastname": "Waters",
+      "url": "/cookview"
+    },
+    {
+      "username": "TPage",
+      "password": "password",
+      "type": "waitstaff",
+      "firstname": "Tyler",
+      "lastname": "Page",
+      "url": "/waitview"
+    },
+    {
+      "username": "FPatel",
+      "password": "password",
+      "type": "cook",
+      "firstname": "Frank",
+      "lastname": "Patel",
+      "url": "/cookview"
+    },
+    {
+      "username": "CGriffin",
+      "password": "password",
+      "type": "waitstaff",
+      "firstname": "Carrie",
+      "lastname": "Griffin",
+      "url": "/waitview"
+    },
+    {
+      "username": "admin",
+      "password": "password",
+      "type": "waitstaff",
+      "firstname": "Admin",
+      "lastname": "View",
+      "url": "/admin"
+    }
+  ]
+}

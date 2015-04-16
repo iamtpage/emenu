@@ -1,0 +1,8 @@
+{
+  "username": "admin",
+  "password": "password",
+  "type": "waitstaff",
+  "firstname": "Admin",
+  "lastname": "View",
+  "url": "/admin"
+}

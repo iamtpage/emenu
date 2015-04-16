@@ -1,0 +1,12 @@
+{
+  "notifications": [
+    {
+      "TableNumber": 3,
+      "Description": "Requested Waitstaff Assistance"
+    },
+    {
+      "TableNumber": 3,
+      "Description": "Needs a printed receipt"
+    }
+  ]
+}
