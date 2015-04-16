@@ -1,0 +1,7 @@
+var data = {
+	"notifications": [
+		{"TableNumber": 1, "Description": "Needs Help"},
+		{"TableNumber": 5, "Description": "Orders Ready"},
+		{"TableNumber": 4, "Description": "Needs Refill, 1 Sprite, 1 Root Beer"},
+		{"TableNumber": 10, "Description": "Needs Check"}
+]}
