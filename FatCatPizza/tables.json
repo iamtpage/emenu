@@ -2,7 +2,18 @@
   "Tables": [
     {
       "TableNumber": 1,
-      "Customers": [],
+      "Customers": [
+        {
+          "Name": "Austin",
+          "Drink": "Coke Zero",
+          "Comp": false
+        },
+        {
+          "Name": "Tyler",
+          "Drink": "Water",
+          "Comp": false
+        }
+      ],
       "Pizza": [
         {
           "Crust": "Pan",
