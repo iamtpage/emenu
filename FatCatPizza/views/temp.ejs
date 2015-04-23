@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Fat Cat Pizza</title>
+    <link href="./stylesheets/bootstrap.min.css" rel="stylesheet">
+    <link href="./stylesheets/custom.css" rel="stylesheet">
+    <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="./stylesheets/bootstrap-multiselect.css" type="text/css"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+    <script src="./javascripts/bootstrap.min.js"></script>
+    <script type="text/javascript" src="j./javascripts/bootstrap-multiselect.js"></script>
+    <script src="./javascripts/jquery-2.1.3.min.js"></script>
+    <script type="text/javascipt">
+        var option1 = true;
+        var option2 = false;
+        var option3 = false;
+
+    function TableNotifications() {
+     option1 = true;
+      option2 = false;
+     option3 = false;
+    console.log("calling table notifications");
+    }
+
+    //Will show past notifications
+    function PastNotifications() {
+    option1 = false;
+    option2 = true;
+    option3 = false;
+    }
+
+    //Will show table options
+     function ViewTables() {
+    option1 = false;
+    option2 = false;
+    option3 = true;
+    }
+    </script>
+</head>
+<body >
+<!-- Fixed navbar -->
+<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">Wait Staff View</a>
+        </div>
+        <div id="navOptions" class="navbar-collapse collapse">
+        </div><!--/.nav-collapse -->
+    </div>
+</div>
+
+<!-- Table Notifications -->
+<div id="notificationRows" class="container">
+
+    <% waitstaffNotifications.forEach(function(item) { %>
+    <% console.log(item) %>
+    <div id="notification-row" class="row">
+        <div class="col-md-6 col-sm-6 col-xs-6">
+            <h3>Table <%= item.TableNumber %></h3>
+
+            <p><%= item.Description %></p>
+        </div>
+        <div class="col-md-6 col-sm-6 col-xs-6" align="right">
+            <h3></h3>
+            <a><i class="fa fa-times fa-3x"></i></a>
+        </div>
+    </div>
+    <% }); %>
+</div>
+
+<!-- Fixed footer -->
+<div class="navbar navbar-inverse navbar-fixed-bottom" role="navigation">
+    <div class="container">
+        <div class="navbar-text pull-left">
+            <p id="table"><a href="#logout" data-toggle="modal">Tyler Page</a>
+        </div>
+        <div class="navbar-text pull-right">
+            <a href="#"><i class="fa fa-facebook-square fa-2x"></i></a>
+            <a href="#"><i class="fa fa-twitter fa-2x"></i></a>
+        </div>
+    </div>
+</div>
+
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+
+<div class="modal fade" id="RemoveCustomerModal" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form class="form-horizontal" role="form">
+                <div class="modal-header">
+                    <div class="navbar navbar-default navbar-fixed-top">
+                        <a class="navbar-brand" href="#">Remove Customer</a>
+                    </div>
+                </div>
+                <div class="modal-body">
+                    <h4>Are you sure?</h4>
+                </div>
+                <div class="modal-footer">
+                    <a class="btn btn-primary" data-dismiss="modal" data-toggle="modal" onclick="removeCustomer()">Remove</a>
+                    <a class="btn btn-default" data-dismiss="modal">Cancel</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="EditDrinkModal" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form class="form-horizontal" role="form">
+                <div class="modal-header">
+                    <div class="navbar navbar-default navbar-fixed-top">
+                        <a class="navbar-brand" href="#">Edit Drink</a>
+                    </div>
+                </div>
+                <div class="modal-body">
+                    <script type="text/javascript">
+                        $(document).ready(function() {
+                            $('#drink').multiselect();
+                        });
+                    </script>
+                    <ul class="row list-unstyled">
+                        <li class="col-lg-6 col-md-6 col-sm-6">
+                            Drink
+                        </li>
+                    </ul>
+                    <ul class="row list-unstyled">
+                        <li class="col-lg-6 col-md-6 col-sm-6">
+                            <select id="editDrinkSelection">
+                                <option value="Water">Water</option>
+                                <option value="Coke">Coke</option>
+                                <option value="Dr. Pepper">Dr. Pepper</option>
+                                <option value="Fanta">Fanta</option>
+                                <option value="Lemonade">Lemonade</option>
+                                <option value="Sprite">Sprite</option>
+                            </select>
+                        </li>
+                    </ul>
+                </div>
+                <div class="modal-footer">
+                    <a class="btn btn-primary" data-dismiss="modal" data-toggle="modal" onclick="editDrink()">Add Drink</a>
+                    <a href="#RemoveCustomerModal" class="btn btn-default" data-toggle="modal" data-dismiss="modal">Remove</a>
+                    <a class="btn btn-default" data-dismiss="modal">Close</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="RemovePizzaModal" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form class="form-horizontal" role="form">
+                <div class="modal-header">
+                    <div class="navbar navbar-default navbar-fixed-top">
+                        <a class="navbar-brand" href="#">Remove Pizza</a>
+                    </div>
+                </div>
+                <div class="modal-body">
+                    <h4>Are you sure?</h4>
+                </div>
+                <div class="modal-footer">
+                    <a class="btn btn-primary" data-dismiss="modal" data-toggle="modal" onclick="removePizza()">Remove</a>
+                    <a class="btn btn-default" data-dismiss="modal">Cancel</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="EditPizzaModal" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form class="form-horizontal" role="form">
+                <div class="modal-header">
+                    <div class="navbar navbar-default navbar-fixed-top">
+                        <a class="navbar-brand" href="#">Change Pizza</a>
+                    </div>
+                </div>
+                <div class="modal-body">
+                    <script type="text/javascript">
+                        $(document).ready(function() {
+                            $('#crust').multiselect();
+                            $('#sauce').multiselect();
+                            $('#toppings').multiselect();
+                        });
+                    </script>
+                    <ul class="row list-unstyled">
+                        <li class="col-lg-4 col-md-4 col-sm-4">
+                            Crust Style
+                        </li>
+                        <li class="col-lg-4 col-md-4 col-sm-4">
+                            Sauce
+                        </li>
+                        <li class="col-lg-4 col-md-4 col-sm-4">
+                            Toppings
+                        </li>
+                    </ul>
+                    <ul class="row list-unstyled">
+                        <li class="col-lg-4 col-md-4 col-sm-4">
+                            <select class="unstyled" id="editCrust">
+                                <option value="Pan">Pan</option>
+                                <option value="Hand-tossed">Hand-tossed</option>
+                                <option value="Stuffed">Stuffed</option>
+                            </select>
+                        </li>
+                        <li class="col-lg-4 col-md-4 col-sm-4">
+                            <select id="editSauce">
+                                <option value="Marinara">Marinara</option>
+                                <option value="Alfredo">Alfredo</option>
+                            </select>
+                        </li>
+                        <li class="col-lg-4 col-md-4 col-sm-4">
+                            <select id="editToppings" multiple="multiple">
+                                <option value="Cheese">Cheese</option>
+                                <option value="Tomatoes">Tomatoes</option>
+                                <option value="Mozarella">Mozzarella</option>
+                                <option value="Mushrooms">Mushrooms</option>
+                                <option value="Pepperoni">Pepperoni</option>
+                                <option value="Onions">Onions</option>
+                            </select>
+                        </li>
+                    </ul>
+                </div>
+                <div class="modal-footer">
+                    <a class="btn btn-primary" data-dismiss="modal" data-toggle="modal" onclick="editPizza()">Edit Pizza</a>
+                    <a href="#RemovePizzaModal" class="btn btn-default" data-toggle="modal" data-dismiss="modal">Remove</a>
+                    <a class="btn btn-default" data-dismiss="modal">Close</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- Pizza builder, Allows users to choose 1 sauce, 1 bread type, and as many toppings as they want
+     along with the ability to provide special instructions   -->
+<div class="modal fade" id="AddPizzaModal" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form class="form-horizontal" role="form">
+                <div class="modal-header">
+                    <div class="navbar navbar-default navbar-fixed-top">
+                        <a class="navbar-brand" href="#">Pizza Builder - Create a Pizza</a>
+                    </div>
+                </div>
+                <div class="modal-body">
+                    <script type="text/javascript">
+                        $(document).ready(function() {
+                            $('#crust').multiselect();
+                            $('#sauce').multiselect();
+                            $('#toppings').multiselect();
+                        });
+                    </script>
+                    <ul class="row list-unstyled">
+                        <li class="col-lg-4 col-md-4 col-sm-4">
+                            Crust Style
+                        </li>
+                        <li class="col-lg-4 col-md-4 col-sm-4">
+                            Sauce
+                        </li>
+                        <li class="col-lg-4 col-md-4 col-sm-4">
+                            Toppings
+                        </li>
+                    </ul>
+                    <ul class="row list-unstyled">
+                        <li class="col-lg-4 col-md-4 col-sm-4">
+                            <select class="unstyled" id="crust">
+                                <option value="Pan">Pan</option>
+                                <option value="Hand-tossed">Hand-tossed</option>
+                                <option value="Stuffed">Stuffed</option>
+                            </select>
+                        </li>
+                        <li class="col-lg-4 col-md-4 col-sm-4">
+                            <select id="sauce">
+                                <option value="Marinara">Marinara</option>
+                                <option value="Alfredo">Alfredo</option>
+                            </select>
+                        </li>
+                        <li class="col-lg-4 col-md-4 col-sm-4">
+                            <select id="toppings" multiple="multiple">
+                                <option value="Cheese">Cheese</option>
+                                <option value="Tomatoes">Tomatoes</option>
+                                <option value="Mozarella">Mozzarella</option>
+                                <option value="Mushrooms">Mushrooms</option>
+                                <option value="Pepperoni">Pepperoni</option>
+                                <option value="Onions">Onions</option>
+                            </select>
+                        </li>
+                    </ul>
+                    <ul class="row list-unstyled">
+                        <p></p>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="special-instructions" placeholder="Type Your Special Instructions Here!">
+                        </div>
+                    </ul>
+                </div>
+                <div class="modal-footer">
+                    <a class="btn btn-primary" data-dismiss="modal" data-toggle="modal" onclick="addPizza()">Add Pizza</a>
+                    <a class="btn btn-default" data-dismiss="modal">Close</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="AddDrinkModal" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form class="form-horizontal" role="form">
+                <div class="modal-header">
+                    <div class="navbar navbar-default navbar-fixed-top">
+                        <a class="navbar-brand" href="#">Drink Selection</a>
+                    </div>
+                </div>
+                <div class="modal-body">
+                    <script type="text/javascript">
+                        $(document).ready(function() {
+                            $('#drink').multiselect();
+                        });
+                    </script>
+                    <ul class="row list-unstyled">
+                        <li class="col-lg-6 col-md-6 col-sm-6">
+                            Guest Name
+                        </li>
+                        <li class="col-lg-6 col-md-6 col-sm-6">
+                            Drink
+                        </li>
+                    </ul>
+                    <ul class="row list-unstyled">
+                        <li class="col-lg-6 col-md-6 col-sm-6">
+                            <input type="text"  class="form-control" id="GuestName" placeholder="Type Guest Name"></li>
+                        </li>
+                        <li class="col-lg-6 col-md-6 col-sm-6">
+                            <select id="drinkSelection">
+                                <option value="Water">Water</option>
+                                <option value="Coke">Coke</option>
+                                <option value="Dr. Pepper">Dr. Pepper</option>
+                                <option value="Fanta">Fanta</option>
+                                <option value="Lemonade">Lemonade</option>
+                                <option value="Sprite">Sprite</option>
+                            </select>
+                        </li>
+                    </ul>
+                </div>
+                <div class="modal-footer">
+                    <a class="btn btn-primary" data-dismiss="modal" data-toggle="modal" onclick="addDrink()">Add Drink</a>
+                    <a class="btn btn-default" data-dismiss="modal">Close</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="AddTip" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form class="form-horizontal" role="form">
+                <div class="modal-header">
+                    <div class="navbar navbar-default navbar-fixed-top">
+                        <a class="navbar-brand" href="#">Enter Tip Amount</a>
+                    </div>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <!-- Tip label and text-box -->
+                        <label for="Card Number" class="col-sm-2 control-label">Tip</label>
+                        <div class="col-sm-10">
+                            <input type="number" step="0.01" required min="0" class="form-control" id="tipInput" placeholder="Type the amount or a percentage (i.e $4 or 10%)">
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <a class="btn btn-primary" data-dismiss="modal" data-toggle="modal" onclick="addTip()">Add Tip</a>
+                    <a class="btn btn-default" data-dismiss="modal">Close</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="PayBill" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form class="form-horizontal" role="form">
+                <div class="modal-header">
+                    <div class="navbar navbar-default navbar-fixed-top">
+                        <a class="navbar-brand" href="#">Pay the bill</a>
+                    </div>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <!-- Card choice -->
+                            <a href="#card" class="thumbnail" data-toggle="modal" data-dismiss="modal">
+                                <img src="img/credit-card.png" alt="breadsticks">
+                            </a>
+                            <p class="text-center">
+                                Card
+                            </p>
+                        </div>
+                        <div class="col-sm-4">
+                            <!-- Cash choice -->
+                            <a href="#cash" class="thumbnail" data-toggle="modal" data-dismiss="modal">
+                                <img src="img/cash.png" alt="cash">
+                            </a>
+                            <p class="text-center">
+                                Cash
+                            </p>
+                        </div>
+                        <div class="col-sm-4">
+                            <!-- Split check choice -->
+                            <a href="#split-check" class="thumbnail" data-toggle="modal" data-dismiss="modal">
+                                <img src="img/split-check.png" alt="split">
+                            </a>
+                            <p class="text-center">
+                                Split the Check
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <a class="btn btn-default" data-dismiss="modal">Close</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- The modal displayed when the user presses the "Cash" button -->
+<div class="modal fade" id="cash" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form class="form-horizontal" role="form">
+                <div class="modal-header">
+                    <div class="navbar navbar-default navbar-fixed-top">
+                        <a class="navbar-brand" href="#">Paying with cash?</a>
+                    </div>
+                </div>
+                <div class="modal-body">
+                    <p>Part of our wait-staff will be with you shortly.</p>
+                </div>
+                <div class="modal-footer">
+                    <a class="btn btn-default" data-dismiss="modal">Close</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- Modal displayed when the user click the "Card" button -->
+<div class="modal fade" id="card" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form class="form-horizontal" role="form">
+                <div class="modal-header">
+                    <div class="navbar navbar-default navbar-fixed-top">
+                        <a class="navbar-brand" href="#">Paying With Card</a>
+                    </div>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <!-- Request card number from user (max-length 16 digits) -->
+                        <label for="Card Number" class="col-sm-2 control-label">Card #</label>
+                        <div class="col-sm-10">
+                            <input type="number" maxlength="16" required class="form-control" id="card-number" placeholder="1111-2222-3333-4444">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <!-- 3 digit SVC number needed -->
+                        <label for="card-code" class="col-sm-2 control-label">SVC #</label>
+                        <div class="col-sm-10">
+                            <input type="password" maxlength="3" required class="form-control" id="card-code" placeholder="***">
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary">
+                        <a href="#approve" data-dismiss="modal" data-toggle="modal">Next Step</a>
+                    </button>
+                    <button type="submit" class="btn btn-default">Close</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="approve" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form class="form-horizontal" role="form">
+                <div class="modal-header">
+                    <div class="navbar navbar-default navbar-fixed-top">
+                        <a class="navbar-brand" href="#">Status</a>
+                    </div>
+                </div>
+                <div class="modal-body">
+                    <h4>Card Approved</h4>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-default" data-dismiss="modal" onclick="beenPaid()">Close</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="PrintRecipt" role="dialog">
+    <div class="modal-dialog">
+
+        <div class="modal-content">
+            <form class="form-horizontal" role="form">
+                <div class="modal-header">
+                    <div class="navbar navbar-default navbar-fixed-top">
+                        <a class="navbar-brand" href="#">Recipt</a>
+                    </div>
+                </div>
+                <div class="modal-body">
+                    <h4>Recipt Printed</h4>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>

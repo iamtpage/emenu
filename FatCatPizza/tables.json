@@ -1,0 +1,95 @@
+{
+  "Tables": [
+    {
+      "TableNumber": 1,
+      "Customers": [],
+      "Pizza": [
+        {
+          "Crust": "Pan",
+          "Sauce": "Marinara",
+          "Toppings": [
+            "Sausage"
+          ],
+          "Comp": false,
+          "Status": "Finished",
+          "SpecialMessage": ""
+        }
+      ],
+      "Tip": 0,
+      "Paid": false,
+      "Coupon": 0
+    },
+    {
+      "TableNumber": 2,
+      "Customers": [],
+      "Pizza": [],
+      "Tip": 0,
+      "Paid": false,
+      "Coupon": 0
+    },
+    {
+      "TableNumber": 3,
+      "Customers": [],
+      "Pizza": [],
+      "Tip": 0,
+      "Paid": false,
+      "Coupon": 0
+    },
+    {
+      "TableNumber": 4,
+      "Customers": [],
+      "Pizza": [],
+      "Tip": 0,
+      "Paid": false,
+      "Coupon": 0
+    },
+    {
+      "TableNumber": 5,
+      "Customers": [],
+      "Pizza": [],
+      "Tip": 0,
+      "Paid": false,
+      "Coupon": 0
+    },
+    {
+      "TableNumber": 6,
+      "Customers": [],
+      "Pizza": [],
+      "Tip": 0,
+      "Paid": false,
+      "Coupon": 0
+    },
+    {
+      "TableNumber": 7,
+      "Customers": [],
+      "Pizza": [],
+      "Tip": 0,
+      "Paid": false,
+      "Coupon": 0
+    },
+    {
+      "TableNumber": 8,
+      "Customers": [],
+      "Pizza": [],
+      "Tip": 0,
+      "Paid": false,
+      "Coupon": 0
+    },
+    {
+      "TableNumber": 9,
+      "Customers": [],
+      "Pizza": [],
+      "Tip": 0,
+      "Paid": false,
+      "Coupon": 0
+    },
+    {
+      "TableNumber": 10,
+      "Customers": [],
+      "Pizza": [],
+      "Tip": 0,
+      "Paid": false,
+      "Coupon": 0
+    }
+  ]
+}

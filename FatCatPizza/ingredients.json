@@ -1,0 +1,268 @@
+{
+  "ingredients": {
+    "Drinks": [
+      {
+        "Drink": "Coke",
+        "Status": true,
+        "Calories": 200,
+        "Allergy": [
+          "None"
+        ],
+        "src": "./images/soda-thumbnails/coke.jpg"
+      },
+      {
+        "Drink": "Sierra Mist",
+        "Status": true,
+        "Calories": 200,
+        "Allergy": [
+          "None"
+        ],
+        "src": "./images/soda-thumbnails/sierra-mist.jpg"
+      },
+      {
+        "Drink": "Dr. Pepper",
+        "Status": true,
+        "Calories": 200,
+        "Allergy": [
+          "None"
+        ],
+        "src": "./images/soda-thumbnails/dr-pepper.jpg"
+      },
+      {
+        "Drink": "Diet Coke",
+        "Status": true,
+        "Calories": 200,
+        "Allergy": [
+          "None"
+        ],
+        "src": "./images/soda-thumbnails/diet-coke.jpg"
+      },
+      {
+        "Drink": "Fanta",
+        "Status": true,
+        "Calories": 200,
+        "Allergy": [
+          "None"
+        ],
+        "src": "./images/soda-thumbnails/fanta.jpg"
+      },
+      {
+        "Drink": "Coke Zero",
+        "Status": true,
+        "Calories": 200,
+        "Allergy": [
+          "None"
+        ],
+        "src": "./images/soda-thumbnails/coke-zero.jpg"
+      },
+      {
+        "Drink": "Water",
+        "Status": true,
+        "Calories": 200,
+        "Allergy": [
+          "None"
+        ],
+        "src": "./images/soda-thumbnails/water.jpg"
+      }
+    ],
+    "Crusts": [
+      {
+        "Crust": "Pan",
+        "Status": true,
+        "Calories": 300,
+        "Allergy": [
+          "Gluten",
+          "Wheat"
+        ]
+      },
+      {
+        "Crust": "Stuffed",
+        "Status": true,
+        "Calories": 500,
+        "Allergy": [
+          "Dairy",
+          "Gluten",
+          "Wheat"
+        ]
+      },
+      {
+        "Crust": "Original",
+        "Status": true,
+        "Calories": 300,
+        "Allergy": [
+          "Gluten",
+          "Wheat"
+        ]
+      },
+      {
+        "Crust": "Kids Pizza",
+        "Status": true,
+        "Calories": 150,
+        "Allergy": [
+          "Gluten",
+          "Wheat"
+        ]
+      }
+    ],
+    "DessertCrusts": [
+      {
+        "Crust": "Chocolate",
+        "Status": true,
+        "Calories": 300,
+        "Allergy": [
+          "Dairy",
+          "Gluten"
+        ]
+      },
+      {
+        "Crust": "Regular",
+        "Status": true,
+        "Calories": 300,
+        "Allergy": [
+          "Gluten"
+        ]
+      }
+    ],
+    "Sauces": [
+      {
+        "Sauce": "Marinara",
+        "Status": true,
+        "Calories": 300,
+        "Allergy": [
+          "Tomatoes"
+        ]
+      },
+      {
+        "Sauce": "Alfredo",
+        "Status": true,
+        "Calories": 300,
+        "Allergy": [
+          "Dairy"
+        ]
+      }
+    ],
+    "DessertSauces": [
+      {
+        "Sauce": "Chocolate",
+        "Status": true,
+        "Calories": 300,
+        "Allergy": [
+          "Dairy"
+        ]
+      },
+      {
+        "Sauce": "Strawberry",
+        "Status": true,
+        "Calories": 300,
+        "Allergy": []
+      },
+      {
+        "Sauce": "Icing",
+        "Status": true,
+        "Calories": 300,
+        "Allergy": [
+          "Dairy"
+        ]
+      }
+    ],
+    "Toppings": [
+      {
+        "Topping": "Cheese",
+        "Status": true,
+        "Calories": 200,
+        "Allergy": [
+          "Dairy"
+        ]
+      },
+      {
+        "Topping": "Pepperoni",
+        "Status": true,
+        "Calories": 200,
+        "Allergy": []
+      },
+      {
+        "Topping": "Sausage",
+        "Status": true,
+        "Calories": 200,
+        "Allergy": []
+      },
+      {
+        "Topping": "Ham",
+        "Status": true,
+        "Calories": 200,
+        "Allergy": []
+      },
+      {
+        "Topping": "Mushrooms",
+        "Status": true,
+        "Calories": 50,
+        "Allergy": []
+      },
+      {
+        "Topping": "Bell Pepper",
+        "Status": true,
+        "Calories": 50,
+        "Allergy": []
+      },
+      {
+        "Topping": "Spinach",
+        "Status": true,
+        "Calories": 50,
+        "Allergy": []
+      }
+    ],
+    "DessertToppings": [
+      {
+        "Topping": "Blueberries",
+        "Status": true,
+        "Calories": 50,
+        "Allergy": []
+      },
+      {
+        "Topping": "Strawberries",
+        "Status": true,
+        "Calories": 50,
+        "Allergy": []
+      },
+      {
+        "Topping": "Oreos",
+        "Status": true,
+        "Calories": 100,
+        "Allergy": []
+      },
+      {
+        "Topping": "Reeses",
+        "Status": true,
+        "Calories": 100,
+        "Allergy": [
+          "Dairy",
+          "Nuts"
+        ]
+      },
+      {
+        "Topping": "M&M's",
+        "Status": true,
+        "Calories": 100,
+        "Allergy": [
+          "Dairy"
+        ]
+      },
+      {
+        "Topping": "Chocolate Chips",
+        "Status": true,
+        "Calories": 100,
+        "Allergy": [
+          "Dairy"
+        ]
+      },
+      {
+        "Topping": "Whipped Cream",
+        "Status": true,
+        "Calories": 100,
+        "Allergy": [
+          "Dairy"
+        ]
+      }
+    ]
+  }
+}
