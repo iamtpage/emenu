@@ -201,11 +201,9 @@ function addDrink() {
 	});
 }
 
-function mainPage() {
-	pageview = 0;
-	var out;
-	out = "";
-	var out2 = "";
+function addCarousel()
+{
+	var out = "";
 	out += '<div class="container">';
 	out +=  '<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">';
 	out +=  '<ol class="carousel-indicators">';
@@ -246,6 +244,17 @@ function mainPage() {
 	out +=  '</div>';
 	out +=  '</div>';
 	out +=  '</div>';
+	out += '</div>';
+	document.getElementById("carouselBody").innerHTML = out;
+	mainPage();
+}
+
+function mainPage() {
+	pageview = 0;
+	var out;
+	out = "";
+	var out2 = "";
+	out +=  '<div class="container">';
 	out +=  '<div class="row" id="under-specials">';
 	out +=  '<div class="col-sm-4">';
 	out +=  '<a href="#drinks" data-toggle="modal" class="thumbnail" onclick="drinkModal()">';
@@ -270,8 +279,9 @@ function mainPage() {
 	out +=  '</div>';
 	out +=  '</div>';
 	out +=  '</div>';
+	out +=  '<div>';
 
-	out2 += '<li class="active" onclick="mainPage()"><a href="#">Home</a></li>';
+	out2 += '<li class="active" onclick="addCarousel()"><a href="#">Home</a></li>';
 	out2 += '<li><a href="#drinks" data-toggle="modal" onclick="drinkModal()"> Drinks</a></li>';
 	out2 += '<li><a href="#food" data-toggle="modal" onclick="updateIngredients()">Food</a></li>';
 	out2 += '<li><a href="#login" data-toggle="modal">Login/Register</a></li>';
@@ -286,13 +296,14 @@ function submit()
 	expand();
 	var out2 = "";
 	pageview = 1;
-	out2 += '<li><a href="#" onclick="mainPage()">Home</a></li>';
+	out2 += '<li><a href="#" onclick="addCarousel()">Home</a></li>';
 	out2 += '<li><a href="#drinks" data-toggle="modal" onclick="drinkModal()"> Drinks</a></li>';
 	out2 += '<li><a href="#food" data-toggle="modal" onclick="updateIngredients()">Food</a></li>';
 	out2 += '<li><a href="#login" data-toggle="modal">Login/Register</a></li>';
 	out2 += '<li class="active"><a href="#" data-toggle="modal">Pay Bill</a></li>';
 	out2 += '<li><a href="#help" data-toggle="modal" onclick="callWaitStaff()"><i class="fa fa-question-circle fa-3" style="font-size: large"></i></a></li>';
 	document.getElementById("homepageBar").innerHTML = out2;
+	document.getElementById("carouselBody").innerHTML = "";
 }
 
 function callWaitStaff() {
