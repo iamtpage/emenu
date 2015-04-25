@@ -215,7 +215,7 @@ function mainPage() {
 	out +=  '</ol>';
 	out +=  '<div class="carousel-inner">';
 	out +=  '<div class="item active">';
-	out +=  '<img src="./images/ad-holder.jpg" alt="...">';
+	out +=  '<img src="../images/space-holder.jpg" alt="...">';
 	out +=  '<div class="text-left" id="below-caption">';
 	out +=  '<h3>Your Ad here</h3>';
 	out +=  '<p>Upload a file to advertise with us!</p>';
@@ -225,7 +225,7 @@ function mainPage() {
 	out +=  '</div>';
 	out +=  '</div>';
 	out +=  '<div class="item">';
-	out +=  '<img src="./images/pizza-banner.jpg" alt="...">';
+	out +=  '<img src="../images/pizza-banner.jpg" alt="...">';
 	out +=  '<div class="text-left" id="below-caption">';
 	out +=  '<h3>Food Specials</h3>';
 	out +=  '<p>Our new Spicy Pepperoni will knock your socks off!</p>';
@@ -235,7 +235,7 @@ function mainPage() {
 	out +=  '</div>';
 	out +=  '</div>';
 	out +=  '<div class="item">';
-	out +=  '<img src="./images/dessert-pizza.jpg" alt="...">';
+	out +=  '<img src="../images/dessert-pizza.jpg" alt="...">';
 	out +=  '<div class="text-left" id="below-caption">';
 	out +=  '<h3>Dessert Specials</h3>';
 	out +=  '<p>Our new lava cake will melt your heart!</p>';

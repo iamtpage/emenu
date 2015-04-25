@@ -1,8 +1,7 @@
 {
-  "username": "AWaters",
+  "username": "table3",
   "password": "password",
-  "type": "cook",
-  "firstname": "Austin",
-  "lastname": "Waters",
-  "url": "/cookview"
+  "type": "table",
+  "tableIndex": 2,
+  "url": "/homepage"
 }
