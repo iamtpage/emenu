@@ -254,9 +254,18 @@ function addDrink()
 function addTip()
 {
     inAModal = false;
-    var e = document.getElementById("tipInput");
-    var tip = {"Tip": e.value};
-    e.value = "";
+    var tip = {
+        "Tip": 0
+    };
+    var e = document.getElementById("tip-sel");
+    if(e.options[e.selectedIndex].value == "custom") {
+        e = document.getElementById("tipInput");
+        tip.Tip = e.value;
+    }
+    else
+    {
+        tip.Tip = e.options[e.selectedIndex].value * beforeTip;
+    }
     tip['TableIndex'] = tableToChange;
     var sendObject = JSON.stringify(tip);
     $.ajax({
@@ -299,7 +308,7 @@ function removeTable()
         "Tip": 0,
         "Paid": false,
         "TableIndex": tableToChange,
-        "Coupon": 0
+        "Coupon": 0,
     };
     var sendObject = JSON.stringify(clearTable);
     $.ajax({
@@ -472,6 +481,24 @@ function addCoupon() {
             }
         });
     }
+    if(couponCode == "FreeDessert") {
+        out += 'CONGRATS YOU GET A FREE DESSERT';
+        var coupon = {"Coupon": 10,
+            "TableIndex": tableToChange};
+        var sendObject = JSON.stringify(coupon);
+        $.ajax({
+            type:'POST',
+            data: sendObject,
+            url:'./waitview/addcoupon',
+            contentType:'application/json',
+            success: function(data) {
+                table_information = data;
+                document.getElementById("couponResponse").innerHTML = out;
+                e.value= "";
+                expand(tableToChange);
+            }
+        });
+    }
     else {
         out += 'NOT A VALID COUPON';
         e.value = "";
@@ -529,6 +556,9 @@ function expand(location) {
     var drinkPrice = 0;
     var totalPrice = 0;
     var tipPrice = 0;
+    var d = new Date();
+    var hour = d.getHours();
+    var day = d.getDay();
     for(i = 0; i < table_information.length; i++)
     {
         if(location == i)
@@ -541,20 +571,20 @@ function expand(location) {
             //The i is the location when the x is clicked the option is removed
             out += '<a onclick="ViewTables()"><i" class="fa fa-arrow-up fa-3x"></i></a>';
             out += '</div>';
-            out += '<div id="expandedTable">'
+            out += '<div id="expandedTable">';
             out += '<div class="col-md-12 col-sm-12 col-xs-12">';
-            out += '<div id="TableTitle" class="col-md-6 col-sm-6 col-xs-6">'
+            out += '<div id="TableTitle" class="col-md-6 col-sm-6 col-xs-6">';
             out += '<h4>Drinks</h4>';
-            out += '</div>'
-            out += '<div id="TableTitle" class="col-md-6 col-sm-6 col-xs-6" align="right">'
-            out += '<a href="#AddDrinkModal" data-toggle="modal" data-dismiss="modal" onclick="tableChangeInformation(' + i + ')"><i id="AddPizza" class="fa fa-plus fa-2x"></i></a>'
-            out += '</div>'
+            out += '</div>';
+            out += '<div id="TableTitle" class="col-md-6 col-sm-6 col-xs-6" align="right">';
+            out += '<a href="#AddDrinkModal" data-toggle="modal" data-dismiss="modal" onclick="tableChangeInformation(' + i + ')"><i id="AddPizza" class="fa fa-plus fa-2x"></i></a>';
+            out += '</div>';
             out += '<table class="table table-striped" width="100%">';
             out += '<thead>';
             out += '<tr>';
             out += '<th class="col-md-2 col-sm-2 col-xs-2">Guest</th>';
             out += '<th class="col-md-6 col-sm-6 col-xs-6">Drink</th>';
-            out += '<th class="col-md-2 col-sm-2 col-xs-2">Price</th>'
+            out += '<th class="col-md-2 col-sm-2 col-xs-2">Price</th>';
             out += '<th class="col-md-2 col-sm-2 col-xs-2">Remove</th>';
             out += '</tr>';
             out += '</thead>';
@@ -567,6 +597,7 @@ function expand(location) {
                 out += '<th>' + table_information[i].Customers[j].Drink + '</th>';
                 if(table_information[i].Customers[j].Comp) drinkPrice = 0;
                 else if(table_information[i].Customers[j].Drink == "Water" || table_information[i].Customers[j].Drink == "None") drinkPrice = 0;
+                else if(hour >= 16 && hour <= 19) drinkPrice = .5;
                 else drinkPrice = 1;
                 totalPrice += drinkPrice;
                 out += '<th>' + drinkPrice.toFixed(2) + '</th>';
@@ -575,12 +606,12 @@ function expand(location) {
             }
             out += '</tbody>';
             out += '</table>';
-            out += '<div id="TableTitle" class="col-md-6 col-sm-6 col-xs-6">'
+            out += '<div id="TableTitle" class="col-md-6 col-sm-6 col-xs-6">';
             out += '<h4>Pizza</h4>';
-            out += '</div>'
-            out += '<div id="TableTitle" class="col-md-6 col-sm-6 col-xs-6" align="right">'
-            out += '<a href="#AddPizzaModal" data-toggle="modal" data-dismiss="modal" onclick="tableChangeInformation(' + i + ')"><i id="AddPizza" class="fa fa-plus fa-2x"></i></a>'
-            out += '</div>'
+            out += '</div>';
+            out += '<div id="TableTitle" class="col-md-6 col-sm-6 col-xs-6" align="right">';
+            out += '<a href="#AddPizzaModal" data-toggle="modal" data-dismiss="modal" onclick="tableChangeInformation(' + i + ')"><i id="AddPizza" class="fa fa-plus fa-2x"></i></a>';
+            out += '</div>';
             out += '<table class="table table-striped">';
             out += '<thead>';
             out += '<tr>';
@@ -593,21 +624,36 @@ function expand(location) {
             out += '</tr>';
             out += '</thead>';
             out += '<tbody>';
-            var j = 0;
+            var kids = 0;
+            var adult = 0;
+            if(day == 1)
+            {
+                for(j = 0; j < table_information[i].Pizza.length; j++)
+                {
+                    if(table_information[i].Pizza[j].Crust == 'Kids Pizza') kids+= 1;
+                    else adult+= 1;
+                }
+            }
             for(j = 0; j < table_information[i].Pizza.length; j++)
             {
+                var free = false;
                 out += '<tr>';
                 out += '<th>Pizza ' + (j + 1) + '</th>';
                 out += '<th>' + table_information[i].Pizza[j].Crust + '</th>';
                 out += '<th>' + table_information[i].Pizza[j].Sauce + '</th>';
                 out += '<th>';
                 var k = 0;
-                if(table_information[i].Pizza[j].Crust == 'Kids Pizza') pizzaPrice = 5;
+                if(table_information[i].Pizza[j].Crust == 'Kids Pizza' && adult == 0) pizzaPrice = 5;
+                else if(table_information[i].Pizza[j].Crust == 'Kids Pizza' && adult > 0) {
+                    pizzaPrice = 0;
+                    adult -= 1;
+                    free = true;
+                }
                 else pizzaPrice = 10;
                 for(k = 0; k < table_information[i].Pizza[j].Toppings.length; k++)
                 {
                     out += '<p>' + table_information[i].Pizza[j].Toppings[k] + '</p>';
-                    if(!table_information[i].Pizza[j].Comp) pizzaPrice += .3;
+                    if(!table_information[i].Pizza[j].Comp && !free) pizzaPrice += .3;
                 }
                 out += '</th>';
                 var compPrice = 0;
@@ -625,8 +671,8 @@ function expand(location) {
             out += '<tr>';
             out += '<th class="col-md-8 col-sm-8 col-xs-8">Tip</th>';
             out += '<th class="col-md-2 col-sm-2 col-xs-2">' + parseFloat(table_information[i].Tip).toFixed(2) + '</th>';
+            out += '<th class="col-md-2 col-sm-2 col-xs-2"><a href="#AddTip" class="btn btn-default" data-toggle="modal" onclick="updateTipModal(' + totalPrice + ', ' + i + ')" data-dismiss="modal">Add Tip</a></th>';
             totalPrice += parseFloat(table_information[i].Tip);
-            out += '<th class="col-md-2 col-sm-2 col-xs-2"><a href="#AddTip" class="btn btn-default" data-toggle="modal" onclick="tableChangeInformation(' + i + ')" data-dismiss="modal">Add Tip</a></th>';
             out += '</tr>';
             out += '<tr>';
             out += '<th>Coupon</th>';
@@ -668,4 +714,15 @@ function expand(location) {
         }
     }
     document.getElementById("notificationRows").innerHTML = out;
+}
+
+function updateTipModal(totalPrice, i)
+{
+    beforeTip = totalPrice;
+    tableChangeInformation(i);
+    setInterval(function () {
+        var e = document.getElementById("tip-sel");
+        if(e.options[e.selectedIndex].value == "custom") $("#CustomTip").show();
+        else $("#CustomTip").hide();
+    }, 100);
 }

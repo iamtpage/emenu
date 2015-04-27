@@ -2,30 +2,8 @@
   "Tables": [
     {
       "TableNumber": 1,
-      "Customers": [
-        {
-          "Name": "Austin",
-          "Drink": "Coke Zero",
-          "Comp": false
-        },
-        {
-          "Name": "Tyler",
-          "Drink": "Water",
-          "Comp": false
-        }
-      ],
-      "Pizza": [
-        {
-          "Crust": "Pan",
-          "Sauce": "Marinara",
-          "Toppings": [
-            "Sausage"
-          ],
-          "Comp": false,
-          "Status": "Finished",
-          "SpecialMessage": ""
-        }
-      ],
+      "Customers": [],
+      "Pizza": [],
       "Tip": 0,
       "Paid": false,
       "Coupon": 0
@@ -42,7 +20,7 @@
       "TableNumber": 3,
       "Customers": [],
       "Pizza": [],
-      "Tip": 0,
+      "Tip": "0",
       "Paid": false,
       "Coupon": 0
     },

@@ -111,6 +111,15 @@ router.post('/addcustomer', function(req, res) {
     updateTableJson();
 });
 
+router.post('/totalprice', function(req, res) {
+    var updateTotal = req.body;
+    var tableIndex = updateTotal.tableIndex;
+    var totalPrice = updateTotal.TotalPrice;
+    tables.Tables[tableIndex]['TotalPrice'] = totalPrice;
+    res.send(tables.Tables);
+    updateTableJson();
+});
+
 router.post('/updatedrink', function(req, res) {
     var updateDrink = req.body;
     var customerIndex = updateDrink.CustomerIndex;
@@ -153,6 +162,20 @@ router.post('/refillnotification', function(req, res) {
     updateNotificationsJson();
 });
 
+router.post('/togonotification', function(req, res) {
+    var togoNotification = req.body;
+    var notification = {
+        TableNumber: tables.Tables[togoNotification.tableIndex].TableNumber,
+        Description: ""
+    };
+    notification.Description = "Order is to go for: " + togoNotification.Name;
+    var tempWaitStaffNotifications = require('./../waitstaff-notifications.json');
+    tempWaitStaffNotifications.notifications.push(notification);
+    waitstaffNotifications = tempWaitStaffNotifications;
+    res.send(tables.Tables);
+    updateNotificationsJson();
+});
+
 router.post('/help', function(req, res) {
     var helpNotification = req.body;
     var notification = {
@@ -179,7 +202,7 @@ router.post('/addpizza', function(req, res) {
     tables.Tables[TableIndex].Pizza.push(pizza);
     cookNotification['PizzaIndex'] = tables.Tables[TableIndex].Pizza.length - 1;
     cookNotifications.notifications.push(cookNotification);
-    res.send(tables.Tables);
+    res.send({});
     updateTableJson();
     updateCookNotificationsJson();
 });

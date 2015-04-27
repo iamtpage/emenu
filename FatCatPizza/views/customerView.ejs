@@ -56,7 +56,7 @@
                 </ol>
             <div class="carousel-inner">
                 <div class="item active">
-                    <img src="./images/ad-holder.jpg" alt="...">
+                    <img src="./images/space-holder.jpg" alt="...">
                     <div class="text-left" id="below-caption">
                         <h3>Your Ad here</h3>
                         <p>Upload a file to advertise with us!</p>
@@ -66,23 +66,23 @@
                         </div>
                     </div>
                 <div class="item">
-                    <img src="./images/pizza-banner.jpg" alt="...">
+                    <img src="./images/kids-banner.jpg" alt="...">
                     <div class="text-left" id="below-caption">
                         <h3>Food Specials</h3>
-                        <p>Our new Spicy Pepperoni will knock your socks off!</p>
+                        <p>Monday's Kids Eat Free!</p>
                         </div>
                     <div class="text-right" id="below-caption">
-                        <a class="btn btn-default" href="#food" data-toggle="modal">View Our Menu</a>
+                        <a class="btn btn-default" href="#food" data-toggle="modal">Create a Pizza</a>
                         </div>
                     </div>
                 <div class="item">
-                    <img src="./images/dessert-pizza.jpg" alt="...">
+                    <img src="./images/drink-banner.jpg" alt="...">
                     <div class="text-left" id="below-caption">
-                        <h3>Dessert Specials</h3>
-                        <p>Our new lava cake will melt your heart!</p>
+                        <h3>Drink Specials</h3>
+                        <p>Half Price Drinks 4pm - 7pm Everyday!</p>
                         </div>
                     <div class="text-right" id="below-caption">
-                        <a class="btn btn-default" href="#desserts" data-toggle="modal">View Desserts</a>
+                        <a class="btn btn-default" href="#drinks" data-toggle="modal" onclick="drinkModal()">Order Drink</a>
                         </div>
                     </div>
                 </div>
@@ -327,10 +327,10 @@
                 <div class="modal-footer">
                     <div class="pull-left">
                         Is this order To-Go?
-                        <input type="checkbox">
+                        <input id=dessertToGo" type="checkbox">
                     </div>
                     <div class="col-xs-4">
-                        <input type="text" class="form-control input-sm" id="to-go-name" placeholder="Type Your Name">
+                        <input type="text" class="form-control input-sm" id="to-go-dessert" placeholder="Type Your Name">
                     </div>
                     <a class="btn btn-primary" data-dismiss="modal" data-toggle="modal" href="#" onclick="addPizza(0)">Make my Pizza!</a>
                     <a class="btn btn-default" data-dismiss="modal">Close</a>
@@ -527,7 +527,25 @@
                     </div>
                 </div>
                 <div class="modal-body">
+                    <script type="text/javascript">
+                        $(document).ready(function() {
+                            $('#tip-sel').multiselect();
+                        });
+                    </script>
                     <div class="form-group">
+                        <label class="col-sm-2 control-label">Percent</label>
+                        <ul class="row list-unstyled">
+                            <li class="col-lg-4">
+                                <select class="unstyled" id="tip-sel">
+                                    <option value=".1">10%</option>
+                                    <option value=".15">15%</option>
+                                    <option value=".2">20%</option>
+                                    <option value="custom">Custom Amount</option>
+                                </select>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="form-group" id="CustomTip">
                         <!-- Tip label and text-box -->
                         <label for="Card Number" class="col-sm-2 control-label">Tip</label>
                         <div class="col-sm-10">
@@ -669,10 +687,10 @@
                 <div class="modal-footer">
                     <div class="pull-left">
                         Is this order To-Go?
-                        <input type="checkbox">
+                        <input id="pizzaToGo" type="checkbox" value="togo">
                     </div>
                     <div class="col-xs-4">
-                        <input type="text" class="form-control input-sm" id="to-go-name" placeholder="Type Your Name">
+                        <input type="text" class="form-control" id="to-go-pizza" placeholder="To Go Name">
                     </div>
                     <a class="btn btn-primary" data-dismiss="modal" data-toggle="modal" href="#" onclick="addPizza(1)">Make my Pizza!</a>
                     <a class="btn btn-default" data-dismiss="modal">Close</a>
@@ -951,7 +969,7 @@
 
         if(choice == choices[right_choice])
         {
-            alert("You win a free dessert!");
+            alert("You win a free dessert! Enter Coupon Code FreeDessert.");
         }
 
         else

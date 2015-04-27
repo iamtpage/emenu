@@ -7,6 +7,7 @@ var globalCustomerIndex;
 var submitted = false;
 var pageview = 0;
 var inModal = false;
+var beforeTip = 0;
 
 function update() {
 	tableIndex = currentuser.tableIndex;
@@ -201,55 +202,8 @@ function addDrink() {
 	});
 }
 
-function addCarousel()
-{
-	var out = "";
-	out += '<div class="container">';
-	out +=  '<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">';
-	out +=  '<ol class="carousel-indicators">';
-	out +=  '<li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>';
-	out +=  '<li data-target="#carousel-example-generic" data-slide-to="1"></li>';
-	out +=  '<li data-target="#carousel-example-generic" data-slide-to="2"></li>';
-	out +=  '</ol>';
-	out +=  '<div class="carousel-inner">';
-	out +=  '<div class="item active">';
-	out +=  '<img src="../images/space-holder.jpg" alt="...">';
-	out +=  '<div class="text-left" id="below-caption">';
-	out +=  '<h3>Your Ad here</h3>';
-	out +=  '<p>Upload a file to advertise with us!</p>';
-	out +=  '</div>';
-	out +=  '<div class="text-right" id="below-caption">';
-	out +=  '<a class="btn btn-default" href="#food" data-toggle="modal">View Our Menu</a>';
-	out +=  '</div>';
-	out +=  '</div>';
-	out +=  '<div class="item">';
-	out +=  '<img src="../images/pizza-banner.jpg" alt="...">';
-	out +=  '<div class="text-left" id="below-caption">';
-	out +=  '<h3>Food Specials</h3>';
-	out +=  '<p>Our new Spicy Pepperoni will knock your socks off!</p>';
-	out +=  '</div>';
-	out +=  '<div class="text-right" id="below-caption">';
-	out +=  '<a class="btn btn-default" href="#food" data-toggle="modal">View Our Menu</a>';
-	out +=  '</div>';
-	out +=  '</div>';
-	out +=  '<div class="item">';
-	out +=  '<img src="../images/dessert-pizza.jpg" alt="...">';
-	out +=  '<div class="text-left" id="below-caption">';
-	out +=  '<h3>Dessert Specials</h3>';
-	out +=  '<p>Our new lava cake will melt your heart!</p>';
-	out +=  '</div>';
-	out +=  '<div class="text-right" id="below-caption">';
-	out +=  '<a class="btn btn-default" href="#desserts" data-toggle="modal">View Desserts</a>';
-	out +=  '</div>';
-	out +=  '</div>';
-	out +=  '</div>';
-	out +=  '</div>';
-	out += '</div>';
-	document.getElementById("carouselBody").innerHTML = out;
-	mainPage();
-}
-
 function mainPage() {
+	$("#carouselBody").show();
 	pageview = 0;
 	var out;
 	out = "";
@@ -281,7 +235,7 @@ function mainPage() {
 	out +=  '</div>';
 	out +=  '<div>';
 
-	out2 += '<li class="active" onclick="addCarousel()"><a href="#">Home</a></li>';
+	out2 += '<li class="active" onclick="mainPage()"><a href="#">Home</a></li>';
 	out2 += '<li><a href="#drinks" data-toggle="modal" onclick="drinkModal()"> Drinks</a></li>';
 	out2 += '<li><a href="#food" data-toggle="modal" onclick="updateIngredients()">Food</a></li>';
 	out2 += '<li><a href="#login" data-toggle="modal">Login/Register</a></li>';
@@ -294,16 +248,16 @@ function mainPage() {
 function submit()
 {
 	expand();
+	$("#carouselBody").hide();
 	var out2 = "";
 	pageview = 1;
-	out2 += '<li><a href="#" onclick="addCarousel()">Home</a></li>';
+	out2 += '<li><a href="#" onclick="mainPage()">Home</a></li>';
 	out2 += '<li><a href="#drinks" data-toggle="modal" onclick="drinkModal()"> Drinks</a></li>';
 	out2 += '<li><a href="#food" data-toggle="modal" onclick="updateIngredients()">Food</a></li>';
 	out2 += '<li><a href="#login" data-toggle="modal">Login/Register</a></li>';
 	out2 += '<li class="active"><a href="#" data-toggle="modal">Pay Bill</a></li>';
 	out2 += '<li><a href="#help" data-toggle="modal" onclick="callWaitStaff()"><i class="fa fa-question-circle fa-3" style="font-size: large"></i></a></li>';
 	document.getElementById("homepageBar").innerHTML = out2;
-	document.getElementById("carouselBody").innerHTML = "";
 }
 
 function callWaitStaff() {
@@ -374,6 +328,26 @@ function addPizza(type)
 		}
 		e = document.getElementById("special-instructions");
 		pizza.SpecialMessage = e.value;
+		e = document.getElementById("pizzaToGo");
+		if(e.checked)
+		{
+			e.checked = false;
+			e = document.getElementById("to-go-pizza");
+			var togo = {
+				Name: e.value,
+				tableIndex: tableIndex
+			};
+			e.value = false;
+			var sendObject =  JSON.stringify(togo);
+			$.ajax({
+				type:'POST',
+				data: sendObject,
+				url:'./homepage/togonotification',
+				contentType:'application/json',
+				success: function(data) {
+				}
+			});
+		}
 		pizza['TableIndex'] = tableIndex;
 	}
 	else {
@@ -392,6 +366,26 @@ function addPizza(type)
 			}
 		}
 		e = document.getElementById("special-instructions-dessert");
+		e = document.getElementById("dessertToGo");
+		if(e.checked)
+		{
+			e.checked = false;
+			e = document.getElementById("to-go-dessert");
+			var togo = {
+				Name: e.value,
+				tableIndex: tableIndex
+			};
+			e.value = false;
+			var sendObject =  JSON.stringify(togo);
+			$.ajax({
+				type:'POST',
+				data: sendObject,
+				url:'./homepage/togonotification',
+				contentType:'application/json',
+				success: function(data) {
+				}
+			});
+		}
 		pizza.SpecialMessage = e.value;
 		pizza['TableIndex'] = tableIndex;
 	}
@@ -463,6 +457,9 @@ function expand() {
 	var drinkPrice = 0;
 	var totalPrice = 0;
 	var tipPrice = 0;
+	var d = new Date();
+	var hour = d.getHours();
+	var day = d.getDay();
 	out += '<div class="container">'
 	out += '<div id="notification-row" class="row">';
 	out += '<div class="col-md-12 col-sm-12 col-xs-12">';
@@ -490,7 +487,8 @@ function expand() {
 		out += '<th>' + table_information[tableIndex].Customers[j].Name + '</th>';
 		out += '<th>' + table_information[tableIndex].Customers[j].Drink + '</th>';
 		if(table_information[tableIndex].Customers[j].Comp) drinkPrice = 0;
-		else if(table_information[tableIndex].Customers[j].Drink == "Water") drinkPrice = 0;
+		else if(table_information[tableIndex].Customers[j].Drink == "Water" || table_information[tableIndex].Customers[j].Drink == "None") drinkPrice = 0;
+		else if(hour >= 16 && hour <= 19) drinkPrice = .5;
 		else drinkPrice = 1;
 		totalPrice += drinkPrice;
 		out += '<th>' + drinkPrice.toFixed(2) + '</th>';
@@ -514,20 +512,36 @@ function expand() {
 	out += '</tr>';
 	out += '</thead>';
 	out += '<tbody>';
+	var kids = 0;
+	var adult = 0;
+	if(day == 1)
+	{
+		for(j = 0; j < table_information[tableIndex].Pizza.length; j++)
+		{
+			if(table_information[tableIndex].Pizza[j].Crust == 'Kids Pizza') kids+= 1;
+			else adult+= 1;
+		}
+	}
 	for(j = 0; j < table_information[tableIndex].Pizza.length; j++)
 	{
+		var free = false;
 		out += '<tr>';
 		out += '<th>Pizza ' + (j + 1) + '</th>';
 		out += '<th>' + table_information[tableIndex].Pizza[j].Crust + '</th>';
 		out += '<th>' + table_information[tableIndex].Pizza[j].Sauce + '</th>';
 		out += '<th>';
 		var k = 0;
-		if(table_information[tableIndex].Pizza[j].Crust == 'Kids Pizza') pizzaPrice = 5;
+		if(table_information[tableIndex].Pizza[j].Crust == 'Kids Pizza' && adult == 0) pizzaPrice = 5;
+		else if(table_information[tableIndex].Pizza[j].Crust == 'Kids Pizza' && adult > 0) {
+			pizzaPrice = 0;
+			adult -= 1;
+			free = true;
+		}
 		else pizzaPrice = 10;
 		for(k = 0; k < table_information[tableIndex].Pizza[j].Toppings.length; k++)
 		{
 			out += '<p>' + table_information[tableIndex].Pizza[j].Toppings[k] + '</p>';
-			if(!table_information[tableIndex].Pizza[j].Comp) pizzaPrice += .3;
+			if(!table_information[tableIndex].Pizza[j].Comp && !free) pizzaPrice += .3;
 		}
 		out += '</th>';
 		var compPrice = 0;
@@ -545,8 +559,8 @@ function expand() {
 	out += '<tr>';
 	out += '<th class="col-md-8 col-sm-8 col-xs-8">Tip</th>';
 	out += '<th class="col-md-2 col-sm-2 col-xs-2">' + parseFloat(table_information[tableIndex].Tip).toFixed(2) + '</th>';
+	out += '<th class="col-md-2 col-sm-2 col-xs-2"><a href="#AddTip" class="btn btn-default" data-toggle="modal" data-dismiss="modal" onclick="updateTipModal(' + totalPrice + ')">Add Tip</a></th>';
 	totalPrice += parseFloat(table_information[tableIndex].Tip);
-	out += '<th class="col-md-2 col-sm-2 col-xs-2"><a href="#AddTip" class="btn btn-default" data-toggle="modal" data-dismiss="modal">Add Tip</a></th>';
 	out += '</tr>';
 	out += '<tr>';
 	out += '<th>Coupon</th>';
@@ -577,9 +591,18 @@ function expand() {
 
 function addTip()
 {
-	var e = document.getElementById("tipInput");
-	var tip = {"Tip": e.value};
-	e.value = "";
+	var tip = {
+		"Tip": 0
+	};
+	var e = document.getElementById("tip-sel");
+	if(e.options[e.selectedIndex].value == "custom") {
+		e = document.getElementById("tipInput");
+		tip.Tip = e.value;
+	}
+	else
+	{
+		tip.Tip = e.options[e.selectedIndex].value * beforeTip;
+	}
 	tip['TableIndex'] = tableIndex;
 	var sendObject = JSON.stringify(tip);
 	$.ajax({
@@ -617,6 +640,24 @@ function addCoupon() {
 	if(couponCode == "COUPON1") {
 		out += 'CONGRATS YOU GET A DOLLAR OFF';
 		var coupon = {"Coupon": 1,
+			"TableIndex": tableIndex};
+		var sendObject = JSON.stringify(coupon);
+		$.ajax({
+			type:'POST',
+			data: sendObject,
+			url:'./waitview/addcoupon',
+			contentType:'application/json',
+			success: function(data) {
+				table_information = data;
+				document.getElementById("couponResponse").innerHTML = out;
+				e.value= "";
+				expand();
+			}
+		});
+	}
+	if(couponCode == "FreeDessert") {
+		out += 'CONGRATS YOU GET A FREE DESSERT';
+		var coupon = {"Coupon": 10,
 			"TableIndex": tableIndex};
 		var sendObject = JSON.stringify(coupon);
 		$.ajax({
@@ -754,6 +795,16 @@ function nutrition() {
 		out += '</tr>';
 	}
 	document.getElementById("foodInformation").innerHTML = out;
+}
+
+function updateTipModal(totalPrice)
+{
+	beforeTip = totalPrice;
+	setInterval(function () {
+		var e = document.getElementById("tip-sel");
+		if(e.options[e.selectedIndex].value == "custom") $("#CustomTip").show();
+		else $("#CustomTip").hide();
+	}, 100);
 }
 
 

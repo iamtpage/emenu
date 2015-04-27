@@ -1,7 +1,8 @@
 {
-  "username": "table3",
+  "username": "TPage",
   "password": "password",
-  "type": "table",
-  "tableIndex": 2,
-  "url": "/homepage"
+  "type": "waitstaff",
+  "firstname": "Tyler",
+  "lastname": "Page",
+  "url": "/waitview"
 }
